@@ -28,11 +28,16 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.sidebar {
+  background-color: rgba(74, 109, 143, 1);
+  color: #fff;
+  padding: 50px 40px;
+  text-align: center;
+}
+
+.main {
+  background-color: rgba(235, 235, 235, 1);
+  color: gray;
+  padding: 30px;
+  text-align: center;
 }
