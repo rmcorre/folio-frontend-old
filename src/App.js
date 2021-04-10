@@ -13,7 +13,7 @@ import AppStyles from './App.module.css';
 
 class App extends Component {
   state = {
-    identity: [],
+    identities: [],
     summaries: [],
     concepts: [
       {id: 1, name: 'OOP Principles'}, 
@@ -38,19 +38,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // http://192.168.1.74:8080
-    // axios.get('localhost:8080/identities')
-    //   .then(response => {
-    //     console.log(response.data);
-    //     const data = response.data;
-    //     let activeIdentity = data.filter(identity => {return identity.id === 1})
-    //     this.setState({name: activeIdentity[0].name});
-    //     this.setState(state => state.identity = response.data);
-    //     console.log(activeIdentity[0].name);
-    //   });
+    // http://localhost:8080
+    // http://192.168.1.73:8080
+    axios.get('http://192.168.1.73:8080/identities')
+      .then(response => {
+        console.log(response);
+        this.setState({identities: response.data});
+      });
 
-    // http://192.168.1.74:8080
-    axios.get('http://localhost:8080/summaries')
+    // http://localhost:8080
+    // http://192.168.1.73:8080
+    axios.get('http://192.168.1.73:8080/summaries')
       .then(response => {
         console.log(response);
         this.setState({summaries: response.data});
@@ -58,17 +56,32 @@ class App extends Component {
   }
 
   render() {
+    const identity = this.state.identities
+      .filter(identity => identity.id === 1)
+      .map(identity => {
+        return <Avatar 
+          key={identity.name.id}
+          first={identity.name.first} 
+          last={identity.name.last} 
+        />
+      })
+
     const summary = this.state.summaries
       .filter(summary => summary.id === 1)
       .map(summary => {
-        return <Summary summary={summary.summary}/>
+        return <Summary
+          key={summary.id}
+          summary={summary.summary}
+        />
       });
-    let concepts = (
+
+    const concepts = (
       <div className="d-flex justify-content-between flex-wrap">
         {this.state.concepts.map((concept) => {
           return <Concept
+            key={concept.id}
             name={concept.name} 
-            key={concept.id} />
+          />
         })}
       </div>
     );
@@ -81,10 +94,7 @@ class App extends Component {
         <MDBRow className="min-vh-100">
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
-              {/* <Avatar 
-                first={this.state.identity[0].name.first} 
-                last={this.state.identity[0].name.last}
-              /> */}
+              {identity}
               {summary}
               <Contact />
             </aside>
