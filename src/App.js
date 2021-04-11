@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import {MDBContainer, MDBRow, MDBCol} from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 import Avatar from './components/Avatar/Avatar';
 import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
@@ -13,14 +13,15 @@ import AppStyles from './App.module.css';
 
 class App extends Component {
   state = {
-    identities: [],
+    identities: null,
+    roles: [],
     summaries: [],
     concepts: [
-      {id: 1, name: 'OOP Principles'}, 
-      {id: 2, name: 'Domain Modeling'}, 
-      {id: 3, name: 'RDBMS Design'}, 
-      {id: 4, name: 'Design Patterns'}, 
-      {id: 5, name: 'Software Architecture'}
+      { id: 1, name: 'OOP Principles' },
+      { id: 2, name: 'Domain Modeling' },
+      { id: 3, name: 'RDBMS Design' },
+      { id: 4, name: 'Design Patterns' },
+      { id: 5, name: 'Software Architecture' }
     ],
     toolsAndTech: [
       {},
@@ -42,29 +43,39 @@ class App extends Component {
     // http://192.168.1.73:8080
     axios.get('http://192.168.1.73:8080/identities')
       .then(response => {
-        console.log(response);
-        this.setState({identities: response.data});
+        this.setState({ identities: response.data });
+      });
+
+    // http://localhost:8080
+    // http://192.168.1.73:8080
+    axios.get('http://192.168.1.73:8080/roles')
+      .then(response => {
+        this.setState({ roles: response.data });
       });
 
     // http://localhost:8080
     // http://192.168.1.73:8080
     axios.get('http://192.168.1.73:8080/summaries')
       .then(response => {
-        console.log(response);
-        this.setState({summaries: response.data});
+        this.setState({ summaries: response.data });
       });
   }
 
   render() {
-    const identity = this.state.identities
-      .filter(identity => identity.id === 1)
-      .map(identity => {
-        return <Avatar 
-          key={identity.name.id}
-          first={identity.name.first} 
-          last={identity.name.last} 
-        />
-      })
+    let identities = this.state.identities;
+    let roles = this.state.roles;
+    console.log(roles);
+
+    if (identities === null || roles === null) {
+      return null;
+    }
+
+    let identity = { ...identities.filter(identity => identity.id === 1) };
+    console.log(identity);
+
+    let role = { ...roles.filter(role => role.id === 2) };
+    console.log(role);
+
 
     const summary = this.state.summaries
       .filter(summary => summary.id === 1)
@@ -80,7 +91,7 @@ class App extends Component {
         {this.state.concepts.map((concept) => {
           return <Concept
             key={concept.id}
-            name={concept.name} 
+            name={concept.name}
           />
         })}
       </div>
@@ -94,7 +105,7 @@ class App extends Component {
         <MDBRow className="min-vh-100">
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
-              {identity}
+              <Avatar identity={identity} />
               {summary}
               <Contact />
             </aside>
@@ -117,7 +128,7 @@ class App extends Component {
       </MDBContainer>
     );
   }
-  
+
 }
 
 export default App;
