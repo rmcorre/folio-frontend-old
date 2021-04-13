@@ -13,8 +13,6 @@ import AppStyles from './App.module.css';
 
 class App extends Component {
   state = {
-    identities: null,
-    roles: [],
     summaries: [],
     concepts: [
       { id: 1, name: 'OOP Principles' },
@@ -41,42 +39,13 @@ class App extends Component {
   componentDidMount() {
     // http://localhost:8080
     // http://192.168.1.73:8080
-    axios.get('http://192.168.1.73:8080/identities')
-      .then(response => {
-        this.setState({ identities: response.data });
-      });
-
-    // http://localhost:8080
-    // http://192.168.1.73:8080
-    axios.get('http://192.168.1.73:8080/roles')
-      .then(response => {
-        this.setState({ roles: response.data });
-      });
-
-    // http://localhost:8080
-    // http://192.168.1.73:8080
-    axios.get('http://192.168.1.73:8080/summaries')
+    axios.get('http://localhost:8080/summaries')
       .then(response => {
         this.setState({ summaries: response.data });
       });
   }
 
   render() {
-    let identities = this.state.identities;
-    let roles = this.state.roles;
-    console.log(roles);
-
-    if (identities === null || roles === null) {
-      return null;
-    }
-
-    let identity = { ...identities.filter(identity => identity.id === 1) };
-    console.log(identity);
-
-    let role = { ...roles.filter(role => role.id === 2) };
-    console.log(role);
-
-
     const summary = this.state.summaries
       .filter(summary => summary.id === 1)
       .map(summary => {
@@ -105,7 +74,7 @@ class App extends Component {
         <MDBRow className="min-vh-100">
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
-              <Avatar identity={identity} />
+              <Avatar />
               {summary}
               <Contact />
             </aside>
