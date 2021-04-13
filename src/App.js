@@ -39,7 +39,7 @@ class App extends Component {
   componentDidMount() {
     // http://localhost:8080
     // http://192.168.1.73:8080
-    axios.get('http://localhost:8080/summaries')
+    axios.get('http://192.168.1.73:8080/summaries')
       .then(response => {
         this.setState({ summaries: response.data });
       });

@@ -6,45 +6,41 @@ class avatar extends Component {
 
   state = {
     identity: null,
-    roles: null,
+    role: null,
   }
 
   componentDidMount() {
 
-    console.log("Component did mount");
-
     // http://localhost:8080
     // http://192.168.1.73:8080
-    axios.get('http://localhost:8080/identities')
+    axios.get('http://192.168.1.73:8080/identities')
       .then(response => {
-        const result = response.data.filter(identity => identity.id === 1);
-        this.setState({ identitiy: result });
+        let result = response.data.filter(identity => identity.id === 1);
+        this.setState({ identity: result });
       });
 
     // http://localhost:8080
     // http://192.168.1.73:8080
-    axios.get('http://localhost:8080/roles')
+    axios.get('http://192.168.1.73:8080/roles')
       .then(response => {
-        this.setState({ roles: response.data });
+        let result = response.data.filter(role => role.id === 2);
+        this.setState({ role: result });
       });
   }
 
   render() {
 
-    console.log('Inital render');
-
     if (this.state.identity === null || this.state.roles === null) {
       return null;
     }
 
-    // let identity = this.state.identities.filter(identity => identity.id === 1);
-    // console.log(identity);
-
-    const {name: {first, last}} = this.state.identity;
+    console.log(this.state.identity['0']);
+    const { 0: { name: { first, last } } } = this.state.identity;
     console.log(first, last);
 
-    let role = this.state.roles.filter(role => role.id === 2);
-    console.log(role);
+    console.log(this.state.role['0']);
+    const { 0: { roleCategory: { name: category }, roleSubCategory: { name: subCategory } } } = this.state.role;
+    console.log(category, subCategory);
 
     return (
       <section>
@@ -56,7 +52,7 @@ class avatar extends Component {
           />
           <div className={Avatar.overlay}>
             <h3>{first} {last}</h3>
-            {/* <h6>{role[0].roleSubCategory.name} {role[0].roleCategory.name}</h6> */}
+            <h6>{subCategory} {category}</h6>
           </div>
         </div>
       </section>
