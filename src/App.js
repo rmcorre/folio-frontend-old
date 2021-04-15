@@ -13,6 +13,7 @@ import AppStyles from './App.module.css';
 
 class App extends Component {
   state = {
+    profile: null,
     summaries: [],
     concepts: [
       { id: 1, name: 'OOP Principles' },
@@ -39,13 +40,25 @@ class App extends Component {
   componentDidMount() {
     // http://localhost:8080
     // http://192.168.1.73:8080
-    axios.get('http://192.168.1.73:8080/summaries')
+
+    axios.get('http://localhost:8080/profiles')
+      .then(response => {
+        console.log(response.data.filter(profile => profile.id === 2));
+        this.setState({profile: response.data.filter(profile => profile.id === 2)});
+      });
+
+    axios.get('http://localhost:8080/summaries')
       .then(response => {
         this.setState({ summaries: response.data });
       });
   }
 
   render() {
+
+    if (this.state.profile === null) {
+      return null;
+    }
+
     const summary = this.state.summaries
       .filter(summary => summary.id === 1)
       .map(summary => {
@@ -74,7 +87,7 @@ class App extends Component {
         <MDBRow className="min-vh-100">
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
-              <Avatar />
+              <Avatar identity={this.state.profile['0'].identity} role={this.state.profile['0'].role}/>
               {summary}
               <Contact />
             </aside>
