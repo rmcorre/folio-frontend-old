@@ -5,10 +5,10 @@ const summary = (props) => {
 
   return (
     <section>
-        <h5 className={Summary.heading}>About Me</h5>
-        <p className={Summary.body}>
-            {props.summary}
-        </p>
+      <h5 className={Summary.heading}>About Me</h5>
+      <p className={Summary.body}>
+        {props.summary.summary}
+      </p>
     </section>
   )
 }

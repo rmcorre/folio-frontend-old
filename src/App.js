@@ -14,7 +14,6 @@ import AppStyles from './App.module.css';
 class App extends Component {
   state = {
     profile: null,
-    summaries: [],
     concepts: [
       { id: 1, name: 'OOP Principles' },
       { id: 2, name: 'Domain Modeling' },
@@ -41,15 +40,10 @@ class App extends Component {
     // http://localhost:8080
     // http://192.168.1.73:8080
 
-    axios.get('http://localhost:8080/profiles')
+    axios.get('http://192.168.1.73:8080/profiles')
       .then(response => {
-        console.log(response.data.filter(profile => profile.id === 2));
-        this.setState({profile: response.data.filter(profile => profile.id === 2)});
-      });
-
-    axios.get('http://localhost:8080/summaries')
-      .then(response => {
-        this.setState({ summaries: response.data });
+        console.log(response.data.filter(profile => profile.id === 1));
+        this.setState({ profile: response.data.filter(profile => profile.id === 1) });
       });
   }
 
@@ -58,15 +52,6 @@ class App extends Component {
     if (this.state.profile === null) {
       return null;
     }
-
-    const summary = this.state.summaries
-      .filter(summary => summary.id === 1)
-      .map(summary => {
-        return <Summary
-          key={summary.id}
-          summary={summary.summary}
-        />
-      });
 
     const concepts = (
       <div className="d-flex justify-content-between flex-wrap">
@@ -87,9 +72,9 @@ class App extends Component {
         <MDBRow className="min-vh-100">
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
-              <Avatar identity={this.state.profile['0'].identity} role={this.state.profile['0'].role}/>
-              {summary}
-              <Contact />
+              <Avatar identity={this.state.profile['0'].identity} role={this.state.profile['0'].role} />
+              <Summary summary={this.state.profile['0'].summary} />
+              <Contact contact={this.state.profile['0'].identity.contact} />
             </aside>
           </MDBCol>
           <MDBCol md="6" className={AppStyles.main}>
