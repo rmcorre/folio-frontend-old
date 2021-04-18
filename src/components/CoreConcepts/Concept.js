@@ -1,15 +1,15 @@
 import React from 'react';
 
 let style = {
-  marginRight: "15px",
-  fontSize: ".80rem"
+  fontSize: ".80rem",
+  padding: "0 10px 0 10px"
 }
 
 const concept = (props) => {
 
   return (
     <div style={style}>
-      {props.name}
+      {props.term}
     </div>
   );
 }
