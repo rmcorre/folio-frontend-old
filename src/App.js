@@ -14,13 +14,6 @@ import AppStyles from './App.module.css';
 class App extends Component {
   state = {
     profile: null,
-    concepts: [
-      { id: 1, name: 'OOP Principles' },
-      { id: 2, name: 'Domain Modeling' },
-      { id: 3, name: 'RDBMS Design' },
-      { id: 4, name: 'Design Patterns' },
-      { id: 5, name: 'Software Architecture' }
-    ],
     toolsAndTech: [
       {},
       {},
@@ -54,14 +47,12 @@ class App extends Component {
     }
 
     const concepts = (
-      <div className="d-flex justify-content-between flex-wrap">
-        {this.state.concepts.map((concept) => {
-          return <Concept
-            key={concept.id}
-            name={concept.name}
-          />
-        })}
-      </div>
+      this.state.profile['0'].conceptGroup.concepts.map((concept) => {
+        return <Concept
+          key={concept.id}
+          term={concept.term}
+        />
+      })
     );
 
     return (
