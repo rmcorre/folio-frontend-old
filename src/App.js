@@ -7,14 +7,15 @@ import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
 import CoreConcepts from './components/CoreConcepts/CoreConcepts';
 import Concept from './components/CoreConcepts/Concept';
-import ToolsAndTech from './components/ToolsAndTech/ToolsAndTech';
+import ToolGroup from './components/Tools/ToolGroup';
+import Tool from './components/Tools/Tool';
 
 import AppStyles from './App.module.css';
 
 class App extends Component {
   state = {
     profile: null,
-    toolsAndTech: [
+    tech: [
       {},
       {},
       {},
@@ -55,6 +56,15 @@ class App extends Component {
       })
     );
 
+    const tools = (
+      this.state.profile['0'].toolGroup.tools.map((tool) => {
+        return <Tool
+          key={tool.id}
+          tool={tool.toolName}
+        />
+      })
+    );
+
     return (
       <MDBContainer fluid>
         <MDBRow>
@@ -76,7 +86,7 @@ class App extends Component {
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
               <CoreConcepts concepts={concepts} />
-              <ToolsAndTech />
+              <ToolGroup tools={tools} />
             </aside>
           </MDBCol>
         </MDBRow>
