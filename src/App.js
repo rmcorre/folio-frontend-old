@@ -5,29 +5,21 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
 import Avatar from './components/Avatar/Avatar';
 import Summary from './components/Summary/Summary';
 import Contact from './components/Contact/Contact';
-import CoreConcepts from './components/CoreConcepts/CoreConcepts';
-import Concept from './components/CoreConcepts/Concept';
-import ToolGroup from './components/Tools/ToolGroup';
-import Tool from './components/Tools/Tool';
+import Concepts from './components/Concept/Concepts';
+import Concept from './components/Concept/Concept';
+import Techs from './components/Tech/Techs';
+import Tech from './components/Tech/Tech';
+import FrameworksOrLibraries from './components/FrameworkOrLibrary/FrameworksOrLibraries';
+import FrameworkOrLibrary from './components/FrameworkOrLibrary/FrameworkOrLibrary';
+import Tools from './components/Tool/Tools';
+import Tool from './components/Tool/Tool';
+
 
 import AppStyles from './App.module.css';
 
 class App extends Component {
   state = {
-    profile: null,
-    tech: [
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {}
-    ]
+    profile: null
   }
 
   componentDidMount() {
@@ -47,23 +39,37 @@ class App extends Component {
       return null;
     }
 
-    const concepts = (
-      this.state.profile['0'].conceptGroup.concepts.map((concept) => {
-        return <Concept
-          key={concept.id}
-          term={concept.term}
+    const concepts =
+      this.state.profile['0'].industry.conceptList.map(({ id, conceptName }) => (
+        <Concept
+          key={id}
+          concept={conceptName}
         />
-      })
-    );
+      ));
 
-    const tools = (
-      this.state.profile['0'].toolGroup.tools.map((tool) => {
-        return <Tool
-          key={tool.id}
-          tool={tool.toolName}
+    const techs =
+      this.state.profile['0'].industry.techList.map(({ id, techName }) => (
+        <Tech
+          key={id}
+          language={techName}
         />
-      })
-    );
+      ));
+
+    const frameworksOrLibraries =
+      this.state.profile['0'].frameworkOrLibrarySortedSet.map(({ id, name }) => (
+        <FrameworkOrLibrary
+          key={id}
+          frameworkOrLibraryName={name}
+        />
+      ));
+
+    const tools =
+      this.state.profile['0'].industry.toolList.map(({ id, toolName }) => (
+        <Tool
+          key={id}
+          tool={toolName}
+        />
+      ));
 
     return (
       <MDBContainer fluid>
@@ -85,8 +91,10 @@ class App extends Component {
           </MDBCol>
           <MDBCol md="3" className={AppStyles.sidebar}>
             <aside>
-              <CoreConcepts concepts={concepts} />
-              <ToolGroup tools={tools} />
+              <Concepts concepts={concepts} />
+              <Techs techs={techs} />
+              <FrameworksOrLibraries frameworksOrLibraries={frameworksOrLibraries} />
+              <Tools tools={tools} />
             </aside>
           </MDBCol>
         </MDBRow>
