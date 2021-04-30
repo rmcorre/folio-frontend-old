@@ -1,17 +1,9 @@
-import React from 'react';
-
-let style = {
-  fontSize: ".80rem",
-  textAlign: "left"
-}
+import React from "react";
 
 const tech = (props) => {
+  const language = props.language;
 
-  return (
-    <div style={style}>
-      {props.language}
-    </div>
-  )
-}
+  return <div className="text_sm_left">{language}</div>;
+};
 
 export default tech;

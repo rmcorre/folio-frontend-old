@@ -1,24 +1,14 @@
-import React from 'react';
-import Tool from './Tool.module.css';
-
-const style = {
-  display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
-  gridTemplateRows: "repeat(3, 1fr)",
-  gridColumnGap: "5px",
-  gridRowGap: "5px"
-};
+import React from "react";
+import Tool from "./Tool.module.css";
 
 const tools = (props) => {
+  const tools = props.tools;
 
   return (
     <section>
-      <h6 className={Tool.subHeading}>TOOLING</h6>
-      <div style={style}>
-        {props.tools}
-      </div>
+      <h6 className="sidebar_subHeading">TOOLING</h6>
+      <div className="grid_2col_autoRow">{tools}</div>
     </section>
-
   );
 };
 

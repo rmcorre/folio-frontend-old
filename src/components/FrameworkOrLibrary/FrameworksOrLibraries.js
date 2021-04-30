@@ -1,24 +1,14 @@
-import React from 'react';
-import FrameworkOrLibrary from './FrameworkOrLibrary.module.css';
-
-const style = {
-  display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
-  gridTemplateRows: "repeat(3, 1fr)",
-  gridColumnGap: "5px",
-  gridRowGap: "5px"
-};
+import React from "react";
+import FrameworkOrLibrary from "./FrameworkOrLibrary.module.css";
 
 const frameworksOrLibraries = (props) => {
+  const frameWorksOrLibraries = props.frameworksOrLibraries;
 
   return (
     <section>
-      <h6 className={FrameworkOrLibrary.heading}>FRAMEWORKS/LIBRARIES</h6>
-      <div style={style}>
-        {props.frameworksOrLibraries}
-      </div>
+      <h6 className="sidebar_subHeading">FRAMEWORKS / LIBRARIES</h6>
+      <div className="grid_2col_autoRow">{frameWorksOrLibraries}</div>
     </section>
-
   );
 };
 

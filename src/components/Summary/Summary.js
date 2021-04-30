@@ -1,16 +1,15 @@
-import React from 'react';
-import Summary from './Summary.module.css';
+import React from "react";
+import Summary from "./Summary.module.css";
 
 const summary = (props) => {
+  const summary = props.summary.summary;
 
   return (
     <section>
-      <h5 className={Summary.heading}>About Me</h5>
-      <p className={Summary.body}>
-        {props.summary.summary}
-      </p>
+      <h4 className="sidebar_heading">About Me</h4>
+      <p className={Summary.body}>{summary}</p>
     </section>
-  )
-}
+  );
+};
 
 export default summary;
