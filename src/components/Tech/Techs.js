@@ -1,24 +1,14 @@
-import React from 'react';
-import Tech from './Tech.module.css';
-
-const style = {
-  display: "grid",
-  gridTemplateColumns: "repeat(2, 1fr)",
-  gridTemplateRows: "repeat(3, 1fr)",
-  gridColumnGap: "5px",
-  gridRowGap: "5px"
-};
+import React from "react";
+import Tech from "./Tech.module.css";
 
 const techs = (props) => {
+  const techs = props.techs;
 
   return (
     <section>
-      <h6 className={Tech.heading}>TECHNOLOGIES</h6>
-      <div style={style}>
-        {props.techs}
-      </div>
+      <h6 className="sidebar_subHeading">TECHNOLOGIES</h6>
+      <div className="grid_2col_autoRow">{techs}</div>
     </section>
-
   );
 };
 

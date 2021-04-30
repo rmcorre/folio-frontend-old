@@ -1,14 +1,9 @@
-.heading {
-  color: rgba(255, 255, 255, 0.5);
-  margin: 0 0 16px 0;
-  text-align: left;
-  width: 100%;
-}
-
 .body {
   border: 1px dashed transparent;
   color: rgba(255, 255, 255, 1);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  line-height: 25px;
+  /* letter-spacing: .04rem; */
   text-align: left;
   width: 100%;
 }
