@@ -1,0 +1,18 @@
+.workExperienceItem__wrapper {
+  margin: 0 0 40px 0;
+  text-align: left;
+}
+
+.workExperienceItem__role {
+  font-weight: 400;
+  margin: 0;
+}
+
+.workExperienceItem__org {
+  font-weight: 400;
+  margin: 0 0 10px 0;
+}
+
+.workExperienceItem__summary {
+  margin: 0 0 10px 0;
+}
