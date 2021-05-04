@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  margin-bottom: 15px;
 }
 
 .overlay {
@@ -7,7 +8,6 @@
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  color: white;
   padding: 5px 10px 10px 10px;
   margin: 0;
   width: 100%;
@@ -15,10 +15,9 @@
 
 .overlay h3 {
   margin-bottom: 0;
-  text-align: left;
 }
 
-.overlay h6 {
+.overlay div {
   margin: 0;
-  text-align: left;
+  line-height: 1.2;
 }

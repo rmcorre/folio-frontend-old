@@ -1,25 +1,32 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import Avatar from "./components/Avatar/Avatar";
-import Summary from "./components/Summary/Summary";
-import Contact from "./components/Contact/Contact";
-import EducationList from "./components/Education/EducationList/EducationList";
-import EducationItem from "./components/Education/EducationItem/EducationItem";
-import WorkExperienceList from "./components/WorkExperience/WorkExperienceList/WorkExperienceList";
-import WorkExperienceItem from "./components/WorkExperience/WorkExperienceItem/WorkExperienceItem";
 
-import Concepts from "./components/Concept/Concepts";
-import Concept from "./components/Concept/Concept";
-import Techs from "./components/Tech/Techs";
-import Tech from "./components/Tech/Tech";
-import FrameworksOrLibraries from "./components/FrameworkOrLibrary/FrameworksOrLibraries";
-import FrameworkOrLibrary from "./components/FrameworkOrLibrary/FrameworkOrLibrary";
-import Tools from "./components/Tool/Tools";
-import Tool from "./components/Tool/Tool";
+import SideBar from "@sideBar/SideBar";
+import Grid from "@grid/Grid";
+import Main from "@main/Main";
+import Avatar from "@avatar/Avatar";
+import Summary from "@summary/Summary";
+import Contact from "@contact/Contact";
+import EducationList from "@education/EducationList";
+import EducationItem from "@education/EducationItem";
+import WorkExperienceList from "@workExperience/WorkExperienceList";
+import WorkExperienceItem from "@workExperience/WorkExperienceItem";
+import CoreCompetencies from "@coreCompetencies/CoreCompetencies";
+import Concept from "@concept/Concept";
+import Tech from "@tech/Tech";
+import FrameworkOrLibrary from "@frameworkOrLibrary/FrameworkOrLibrary";
+import Tool from "@tool/Tool";
+import styles from "./App.module.css";
 
-import AppStyles from "./App.module.css";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faEnvelope,
+  faPhoneAlt,
+  faMapMarkerAlt,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt);
 
 class App extends Component {
   state = {
@@ -48,6 +55,7 @@ class App extends Component {
     const role = profile.role;
     const summary = profile.summary;
     const contact = profile.identity.contact;
+    console.log(profile.workExperienceSortedSet);
 
     const educationItems = profile.educationSortedSet.map(
       ({
@@ -91,7 +99,7 @@ class App extends Component {
       <Tech key={id} language={techName} />
     ));
 
-    const frameworksOrLibraries = profile.frameworkOrLibrarySortedSet.map(
+    const frameworks = profile.frameworkOrLibrarySortedSet.map(
       ({ id, name }) => (
         <FrameworkOrLibrary key={id} frameworkOrLibraryName={name} />
       )
@@ -107,28 +115,28 @@ class App extends Component {
           <header></header>
         </MDBRow>
         <MDBRow className="min-vh-100">
-          <MDBCol md="3" className="sidebar">
-            <aside>
+          <MDBCol md="3" className="light-blue darken-3">
+            <SideBar>
               <Avatar identity={identity} role={role} />
-              <Summary summary={summary} />
               <Contact contact={contact} />
-            </aside>
+              <Summary summary={summary} />
+            </SideBar>
           </MDBCol>
-          <MDBCol md="6" className="main">
-            <main>
+          <MDBCol md="6">
+            <Main>
               <EducationList educationItems={educationItems} />
               <WorkExperienceList workExperienceItems={workExperienceItems} />
-            </main>
+            </Main>
           </MDBCol>
-          <MDBCol md="3" className="sidebar">
-            <aside>
-              <Concepts concepts={concepts} />
-              <Techs techs={techs} />
-              <FrameworksOrLibraries
-                frameworksOrLibraries={frameworksOrLibraries}
-              />
-              <Tools tools={tools} />
-            </aside>
+          <MDBCol md="3" className="light-blue darken-3">
+            <SideBar>
+              <CoreCompetencies>
+                <Grid heading={"Concepts"} list={concepts} />
+                <Grid heading={"Technologies"} list={techs} />
+                <Grid heading={"Frameworks / Libraries"} list={frameworks} />
+                <Grid heading={"Tools"} list={tools} />
+              </CoreCompetencies>
+            </SideBar>
           </MDBCol>
         </MDBRow>
         <MDBRow>

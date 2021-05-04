@@ -1,0 +1,18 @@
+.wrapper {
+  margin: 0 0 40px 0;
+  text-align: left;
+}
+
+.role {
+  font-weight: 400;
+  margin: 0;
+}
+
+.org {
+  font-weight: 400;
+  margin: 0 0 10px 0;
+}
+
+.summary {
+  margin: 0 0 10px 0;
+}

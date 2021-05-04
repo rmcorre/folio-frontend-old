@@ -1,5 +1,6 @@
 import React from "react";
-import Avatar from "./Avatar.module.css";
+import styles from "./Avatar.module.css";
+import avatarPic from "../../img/profilepicCroppedAndOptimized_400x300.jpg";
 
 const avatar = (props) => {
   const name = props.identity.name.first + " " + props.identity.name.last;
@@ -10,15 +11,17 @@ const avatar = (props) => {
 
   return (
     <section>
-      <div className={Avatar.wrapper}>
+      <div className={styles.wrapper}>
         <img
-          className="img-fluid z-depth-2"
-          src="https://res.cloudinary.com/rosco/image/upload/e_sharpen:100/e_brightness_hsb/c_crop,e_improve,g_north_west,h_1361,q_auto:best,r_5,w_1428,x_700,y_350/v1542720127/portfolio/profilepic.jpg"
+          className="img-fluid"
+          src={avatarPic}
           alt="Horacio Correia"
+          width="400"
+          height="300"
         />
-        <div className={Avatar.overlay}>
+        <div className={styles.overlay}>
           <h3>{name}</h3>
-          <h6>{role}</h6>
+          <div>{role}</div>
         </div>
       </div>
     </section>

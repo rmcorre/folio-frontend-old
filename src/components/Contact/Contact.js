@@ -1,25 +1,29 @@
 import React from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import { MDBIcon } from "mdbreact";
-import Contact from "./Contact.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import styles from "./Contact.module.css";
 
 const contact = (props) => {
+  const email = props.contact.email.email;
+  const phone = props.contact.phone.number;
+  const island = props.contact.address.island;
+  const region = props.contact.address.region;
+
   return (
     <section>
-      <h4 className="sidebar_heading">Contact</h4>
-      <div className={Contact.body}>
-        <p>
-          <MDBIcon far icon="envelope" fixed className="mr-2" />
-          {props.contact.email.email}
-        </p>
-        <p>
-          <MDBIcon icon="phone-alt" fixed className="mr-2" />
-          {props.contact.phone.number}
-        </p>
-        <p>
-          <MDBIcon icon="map-marker-alt" fixed className="mr-2" />
-          {props.contact.address.island}, {props.contact.address.region}
-        </p>
+      {/* <h4 className="sidebar_heading">Contact</h4> */}
+      <div className={styles.wrapper}>
+        <div>
+          <FontAwesomeIcon icon="envelope" fixedWidth className="mr-2" />
+          {email}
+        </div>
+        <div>
+          <FontAwesomeIcon icon="phone-alt" fixedWidth className="mr-2" />
+          {phone}
+        </div>
+        <div>
+          <FontAwesomeIcon icon="map-marker-alt" fixedWidth className="mr-2" />
+          {island}, {region}
+        </div>
       </div>
     </section>
   );
