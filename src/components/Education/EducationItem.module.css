@@ -1,0 +1,14 @@
+.wrapper {
+  margin: 0 0 30px 0;
+  text-align: left;
+}
+
+.course {
+  font-weight: 400;
+  margin: 0;
+}
+
+.institution {
+  font-weight: 400;
+  margin: 0 0 3px 0;
+}

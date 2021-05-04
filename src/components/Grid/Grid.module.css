@@ -1,0 +1,11 @@
+.wrapper {
+  margin: 0 0 20px 0;
+}
+
+.col_2_autorow {
+  display: grid;
+  grid-template-columns: repeat(2, 85px);
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-flow: row;
+  column-gap: 5px;
+}
