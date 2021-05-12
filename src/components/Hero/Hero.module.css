@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: black;
+  padding: 1.25rem 1.25rem 3.125rem 1.25rem;
+}
+
+.flexbox {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (min-width: 32.5rem) {
+  .wrapper {
+    padding: 2.5rem 2.5rem 3.125rem 2.5rem;
+  }
+}
