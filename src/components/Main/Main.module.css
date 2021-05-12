@@ -1,9 +1,9 @@
 .wrapper {
+  background-color: #f8f8f8;
   color: darkslategray;
   margin: 0 -15px;
 }
 
-/* .wrapper h4 {
-  margin: 0 0 16px 0;
-  width: 100%;
-} */
+.wrapper h4 {
+  color: #3b6464;
+}

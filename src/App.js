@@ -3,29 +3,23 @@ import axios from "axios";
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
 
 import SideBar from "@sideBar/SideBar";
-import Grid from "@grid/Grid";
 import Main from "@main/Main";
-import Avatar from "@avatar/Avatar";
+import Hero from "@hero/Hero";
 import Summary from "@summary/Summary";
-import Contact from "@contact/Contact";
 import EducationList from "@education/EducationList";
-import EducationItem from "@education/EducationItem";
 import WorkExperienceList from "@workExperience/WorkExperienceList";
-import WorkExperienceItem from "@workExperience/WorkExperienceItem";
 import CoreCompetencies from "@coreCompetencies/CoreCompetencies";
-import Concept from "@concept/Concept";
-import Tech from "@tech/Tech";
-import FrameworkOrLibrary from "@frameworkOrLibrary/FrameworkOrLibrary";
-import Tool from "@tool/Tool";
-import styles from "./App.module.css";
 
+import styles from "./App.module.css";
+import "./accessibility.css";
+
+// Importing Font Awesome like this allows for global use
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faEnvelope,
   faPhoneAlt,
   faMapMarkerAlt,
 } from "@fortawesome/free-solid-svg-icons";
-
 library.add(faEnvelope, faPhoneAlt, faMapMarkerAlt);
 
 class App extends Component {
@@ -51,92 +45,43 @@ class App extends Component {
     }
 
     const profile = this.state.profile["0"];
-    const identity = profile.identity;
-    const role = profile.role;
+
+    const identity = {
+      name: profile.identity.name,
+      role: profile.role,
+      contact: profile.identity.contact,
+    };
+
+    const core = {
+      concepts: profile.industry.concepts,
+      techs: profile.industry.techs,
+      frameworks: profile.frameworks,
+      tools: profile.industry.tools,
+    };
+
     const summary = profile.summary;
-    const contact = profile.identity.contact;
-    console.log(profile.workExperienceSortedSet);
-
-    const educationItems = profile.educationSortedSet.map(
-      ({
-        id,
-        institution,
-        course,
-        startDate,
-        endDate,
-        educationAddress: { countryRegion },
-      }) => (
-        <EducationItem
-          key={id}
-          institution={institution}
-          course={course}
-          startDate={startDate}
-          endDate={endDate}
-          country={countryRegion}
-        />
-      )
-    );
-
-    const workExperienceItems = profile.workExperienceSortedSet.map(
-      ({ id, organization, startDate, endDate, jobRole, summary, duties }) => (
-        <WorkExperienceItem
-          key={id}
-          organization={organization}
-          startDate={startDate}
-          endDate={endDate}
-          jobRole={jobRole}
-          summary={summary}
-          duties={duties}
-        />
-      )
-    );
-
-    const concepts = profile.industry.conceptList.map(({ id, conceptName }) => (
-      <Concept key={id} concept={conceptName} />
-    ));
-
-    const techs = profile.industry.techList.map(({ id, techName }) => (
-      <Tech key={id} language={techName} />
-    ));
-
-    const frameworks = profile.frameworkOrLibrarySortedSet.map(
-      ({ id, name }) => (
-        <FrameworkOrLibrary key={id} frameworkOrLibraryName={name} />
-      )
-    );
-
-    const tools = profile.industry.toolList.map(({ id, toolName }) => (
-      <Tool key={id} tool={toolName} />
-    ));
+    const educations = profile.educations;
+    const experiences = profile.experiences;
 
     return (
-      <MDBContainer fluid>
+      <MDBContainer size="md" className={"z-depth-1"}>
+        <h1 className="hide_element">Resume</h1>
         <MDBRow>
           <header></header>
         </MDBRow>
         <MDBRow className="min-vh-100">
-          <MDBCol md="3" className="light-blue darken-3">
+          <MDBCol md="5">
             <SideBar>
-              <Avatar identity={identity} role={role} />
-              <Contact contact={contact} />
+              <Hero identity={identity} />
               <Summary summary={summary} />
+              <CoreCompetencies core={core} />
             </SideBar>
           </MDBCol>
-          <MDBCol md="6">
+          <MDBCol md="7">
             <Main>
-              <EducationList educationItems={educationItems} />
-              <WorkExperienceList workExperienceItems={workExperienceItems} />
+              <EducationList educations={educations} />
+              <WorkExperienceList experiences={experiences} />
             </Main>
-          </MDBCol>
-          <MDBCol md="3" className="light-blue darken-3">
-            <SideBar>
-              <CoreCompetencies>
-                <Grid heading={"Concepts"} list={concepts} />
-                <Grid heading={"Technologies"} list={techs} />
-                <Grid heading={"Frameworks / Libraries"} list={frameworks} />
-                <Grid heading={"Tools"} list={tools} />
-              </CoreCompetencies>
-            </SideBar>
           </MDBCol>
         </MDBRow>
         <MDBRow>

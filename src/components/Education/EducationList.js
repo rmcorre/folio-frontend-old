@@ -1,15 +1,33 @@
 import React from "react";
+import Education from "../Education/Education";
+
 import styles from "./EducationList.module.css";
 
 const educationList = (props) => {
-  const educationItems = props.educationItems;
+  const educationList = props.educations.map(
+    ({
+      id,
+      institution,
+      course,
+      startDate,
+      endDate,
+      educationAddress: { countryRegion },
+    }) => (
+      <Education
+        key={id}
+        institution={institution}
+        course={course}
+        startDate={startDate}
+        endDate={endDate}
+        country={countryRegion}
+      />
+    )
+  );
 
   return (
-    <section>
-      <div className={styles.wrapper}>
-        <h4>Educational Background</h4>
-        {educationItems}
-      </div>
+    <section className={styles.wrapper}>
+      <h4>Educational Background</h4>
+      {educationList}
     </section>
   );
 };
