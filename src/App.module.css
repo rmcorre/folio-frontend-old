@@ -28,7 +28,7 @@
   color: #61dafb;
 } */
 
-.sidebar_heading {
+/* .sidebar_heading {
   color: rgba(255, 255, 255, 0.5);
   margin: 0 0 16px 0;
   width: 100%;
@@ -38,4 +38,9 @@
   background-color: white;
   color: darkslategray;
   padding: 50px 100px;
+} */
+
+.pen {
+  font-size: 1rem;
+  float: right;
 }
