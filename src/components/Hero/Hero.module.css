@@ -3,6 +3,12 @@
   padding: 1.25rem 1.25rem 3.125rem 1.25rem;
 }
 
+.edit {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
 .flexbox {
   display: flex;
   justify-content: space-between;
@@ -11,5 +17,10 @@
 @media (min-width: 32.5rem) {
   .wrapper {
     padding: 2.5rem 2.5rem 3.125rem 2.5rem;
+  }
+
+  .edit {
+    top: 45px;
+    right: 45px;
   }
 }
