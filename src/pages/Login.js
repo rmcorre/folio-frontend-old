@@ -1,14 +1,13 @@
 import React from 'react';
 
 const Login = (props) => {
-
   return (
     <header>
       <h1>Login Page</h1>
       <form>
         <div>
           <label htmlFor="user">User</label>
-          <input type="email" id="user" name="user"/>
+          <input type="email" id="user" name="user" />
         </div>
         <div>
           <label htmlFor="password">Password</label>

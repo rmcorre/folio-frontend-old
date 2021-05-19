@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: #f8f8f8;
+  color: lightgray;
+  padding: 1.5rem 2.5rem 0;
+  text-align: right;
+}
+
+.wrapper ul {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper li {
+  display: inline;
+}

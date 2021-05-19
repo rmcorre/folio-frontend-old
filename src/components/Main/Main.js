@@ -1,14 +1,12 @@
-import React from "react";
-import styles from "./Main.module.css";
+import React from 'react';
+import MainHeader from './MainHeader';
+
+import styles from './Main.module.css';
 
 const main = (props) => {
   return (
     <main className={styles.wrapper}>
-      <header>
-        <div>
-          <button>Login</button>
-        </div>
-      </header>
+      <MainHeader />
       {props.children}
     </main>
   );
