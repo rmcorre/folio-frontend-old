@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
-import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
-
-import SideBar from '@sideBar/SideBar';
-import Main from '@main/Main';
-import Hero from '@hero/Hero';
-import Summary from '@summary/Summary';
-import EducationList from '@education/EducationList';
-import WorkExperienceList from '@workExperience/WorkExperienceList';
-import CoreCompetencies from '@coreCompetencies/CoreCompetencies';
+import Resume from './pages/Resume';
+import Login from './pages/Login';
 
 import styles from './App.module.css';
 import './index.css';
@@ -21,8 +15,18 @@ import {
   faPen,
   faPhoneAlt,
   faMapMarkerAlt,
+  faUserCircle,
+  faPrint,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(faEnvelope, faPen, faPhoneAlt, faMapMarkerAlt);
+
+library.add(
+  faEnvelope,
+  faPen,
+  faPhoneAlt,
+  faMapMarkerAlt,
+  faUserCircle,
+  faPrint
+);
 
 class App extends Component {
   state = {
@@ -33,7 +37,7 @@ class App extends Component {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get('http://localhost:8080/profiles').then((response) => {
+    axios.get('http://192.168.1.73:8080/profiles').then((response) => {
       console.log(response.data.filter((profile) => profile.id === 1));
       this.setState({
         profile: response.data.filter((profile) => profile.id === 1),
@@ -66,30 +70,19 @@ class App extends Component {
     const experiences = profile.experiences;
 
     return (
-      <MDBContainer size="md" className={'z-depth-1'}>
-        <h1 className="hide_element">Resume</h1>
-        <MDBRow>
-          <header></header>
-        </MDBRow>
-        <MDBRow className="min-vh-100">
-          <MDBCol md="5">
-            <SideBar>
-              <Hero identity={identity} />
-              <Summary summary={identity.summary} />
-              <CoreCompetencies core={core} />
-            </SideBar>
-          </MDBCol>
-          <MDBCol md="7">
-            <Main>
-              <EducationList educations={educations} />
-              <WorkExperienceList experiences={experiences} />
-            </Main>
-          </MDBCol>
-        </MDBRow>
-        <MDBRow>
-          <footer></footer>
-        </MDBRow>
-      </MDBContainer>
+      <Switch>
+        <Route path="/" exact>
+          <Resume
+            identity={identity}
+            core={core}
+            educations={educations}
+            experiences={experiences}
+          />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+      </Switch>
     );
   }
 }
