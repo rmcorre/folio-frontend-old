@@ -13,3 +13,13 @@
 .wrapper li {
   display: inline;
 }
+
+.wrapper a:link,
+.wrapper a:visited {
+  color: #e0e0e0;
+}
+
+.wrapper a:hover,
+.wrapper a:active {
+  color: #c8c8c8;
+}
