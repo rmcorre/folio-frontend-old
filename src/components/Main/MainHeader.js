@@ -10,7 +10,7 @@ const MainHeader = () => {
       <ul>
         <li>
           <Link to="/print">
-            <FontAwesomeIcon icon="print" size="lg" className="mr-4" />
+            <FontAwesomeIcon icon="print" size="lg" className="me-4" />
           </Link>
         </li>
         <li>
