@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';
-import '../node_modules/mdbreact/dist/css/mdb.css';
+// import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';
+// import '../node_modules/mdbreact/dist/css/mdb.css';
 import './index.css';
 
 ReactDOM.render(
