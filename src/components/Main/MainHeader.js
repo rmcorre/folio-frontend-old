@@ -14,7 +14,7 @@ const MainHeader = () => {
           </Link>
         </li>
         <li>
-          <Link to="/login">
+          <Link to="/admin">
             <FontAwesomeIcon icon="user-circle" size="lg" />
           </Link>
         </li>

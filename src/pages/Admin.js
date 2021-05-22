@@ -1,16 +1,16 @@
 import React from 'react';
-import { MDBContainer, MDBRow, MDBCol } from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import Input from '../components/UI/Input';
 import Button from '../components/UI/Button';
 
-import styles from './Login.module.css';
+import styles from './Admin.module.css';
 
-const Login = (props) => {
+const Admin = (props) => {
   return (
     <MDBContainer size="md" className={styles.wrapper}>
       <MDBRow>
         <header>
-          <h1>Login Page</h1>
+          <h1>Admin Page</h1>
         </header>
       </MDBRow>
       <MDBRow className="min-vh-100">
@@ -34,4 +34,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Admin;
