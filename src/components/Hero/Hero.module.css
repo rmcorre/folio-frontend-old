@@ -1,5 +1,7 @@
 .wrapper {
-  background-color: black;
+  background-color: #000000;
+  background-image: url('https://www.transparenttextures.com/patterns/shattered-dark.png');
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   padding: 1.25rem 1.25rem 3.125rem 1.25rem;
 }
 

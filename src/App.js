@@ -17,6 +17,7 @@ import {
   faMapMarkerAlt,
   faUserCircle,
   faPrint,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -25,7 +26,8 @@ library.add(
   faPhoneAlt,
   faMapMarkerAlt,
   faUserCircle,
-  faPrint
+  faPrint,
+  faBars
 );
 
 class App extends Component {

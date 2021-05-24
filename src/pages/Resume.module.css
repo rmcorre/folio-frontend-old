@@ -1,0 +1,24 @@
+.bgColor {
+  background-color: #263238;
+}
+
+.mbCustom {
+  margin: 0 0 5rem 0 !important;
+}
+
+.rounded {
+  border: 1px solid gray;
+  border-radius: 20px;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}

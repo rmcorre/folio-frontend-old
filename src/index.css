@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:wght@300;400&display=swap');
 
 body {
+  background-color: #eceff1;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
