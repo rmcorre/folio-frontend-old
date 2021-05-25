@@ -6,16 +6,11 @@ import styles from './MainHeader.module.css';
 
 const MainHeader = () => {
   return (
-    <header className={styles.wrapper}>
+    <header className={`rounded-top__right ${styles.wrapper}`}>
       <ul>
         <li>
           <Link to="/print">
             <FontAwesomeIcon icon="print" size="lg" className="me-4" />
-          </Link>
-        </li>
-        <li>
-          <Link to="/admin">
-            <FontAwesomeIcon icon="user-circle" size="lg" />
           </Link>
         </li>
       </ul>
