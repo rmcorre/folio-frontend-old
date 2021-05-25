@@ -34,8 +34,28 @@ label {
   color: black;
 }
 
+.rounded-top__left {
+  border-radius: 10px 0 0 0;
+}
+
 .rounded-top__right {
   border-radius: 0 10px 0 0;
+}
+
+.rounded-bottom__right {
+  border-radius: 0 0 10px 0;
+}
+
+.rounded-bottom__left {
+  border-radius: 0 0 0 10px;
+}
+
+.rounded-left {
+  border-radius: 10px 0 0 10px;
+}
+
+.rounded-right {
+  border-radius: 0 10px 10px 0;
 }
 
 @media (min-width: 1200px) {
