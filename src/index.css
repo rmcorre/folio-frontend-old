@@ -33,3 +33,19 @@ h6 {
 label {
   color: black;
 }
+
+.rounded-top__right {
+  border-radius: 0 10px 0 0;
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1140px !important;
+  }
+}

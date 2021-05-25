@@ -3,13 +3,13 @@ import MainHeader from './MainHeader';
 
 import styles from './Main.module.css';
 
-const main = (props) => {
+const Main = (props) => {
   return (
-    <main className={styles.wrapper}>
-      <MainHeader />
+    <main className={`rounded-top__right ${styles.wrapper}`}>
+      <MainHeader className={styles.rounded} />
       {props.children}
     </main>
   );
 };
 
-export default main;
+export default Main;
