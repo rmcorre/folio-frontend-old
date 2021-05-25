@@ -8,7 +8,7 @@ import Avatar from '../Avatar/Avatar';
 
 const hero = (props) => {
   return (
-    <section className={styles.wrapper}>
+    <section className={`rounded-top__left ${styles.wrapper}`}>
       <Identity name={props.identity.name} role={props.identity.role} />
       <div className={styles.flexbox}>
         <Contact contact={props.identity.contact} />

@@ -16,21 +16,21 @@ const Resume = (props) => {
   return (
     <>
       <SiteNavBar />
-      <MDBContainer size="md" className="shadow-1 rounded-top__right">
+      <MDBContainer size="md">
         <h1 className="hide_element">Resume</h1>
         {/* <MDBRow>
           <header>
           </header>
         </MDBRow> */}
-        <MDBRow className="min-vh-100 rounded-top__right">
-          <MDBCol md="5" className="g-0">
+        <MDBRow className="min-vh-100 shadow-1 mb-5">
+          <MDBCol md="5" className="g-0 rounded-top__left">
             <SideBar>
               <Hero identity={props.identity} />
               <Summary summary={props.identity.summary} />
               <CoreCompetencies core={props.core} />
             </SideBar>
           </MDBCol>
-          <MDBCol md="7" className="g-0 rounded-top__right">
+          <MDBCol md="7" className="g-0">
             <Main>
               <EducationList educations={props.educations} />
               <WorkExperienceList experiences={props.experiences} />

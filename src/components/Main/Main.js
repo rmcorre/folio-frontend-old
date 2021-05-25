@@ -5,7 +5,7 @@ import styles from './Main.module.css';
 
 const Main = (props) => {
   return (
-    <main className={`rounded-top__right ${styles.wrapper}`}>
+    <main className={`h-100 rounded-right ${styles.wrapper}`}>
       <MainHeader className={styles.rounded} />
       {props.children}
     </main>
