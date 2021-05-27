@@ -9,10 +9,22 @@ import Summary from '@summary/Summary';
 import EducationList from '@education/EducationList';
 import WorkExperienceList from '@workExperience/WorkExperienceList';
 import CoreCompetencies from '@coreCompetencies/CoreCompetencies';
+import useBreakpoint from '../customHooks/useBreakpoint';
 
 import styles from './Resume.module.css';
 
+const queries = {
+  xs: '(max-width: 576px)',
+  sm: '(max-width: 767px)',
+  md: '(max-width: 991px)',
+  lg: '(max-width: 1199px)',
+  xl: '(max-width: 1399px)',
+};
+
 const Resume = (props) => {
+  const matchPoints = useBreakpoint(queries);
+  console.log('breakpoints ' + matchPoints);
+
   return (
     <>
       <SiteNavBar />
