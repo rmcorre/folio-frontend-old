@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Resume from './pages/Resume';

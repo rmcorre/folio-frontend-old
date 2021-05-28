@@ -1,5 +1,6 @@
 import React from 'react';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import classNames from 'classnames';
 
 import SiteNavBar from '../components/UI/Navbar/SiteNavbar';
 import SideBar from '@sideBar/SideBar';
@@ -14,7 +15,7 @@ import useBreakpoint from '../customHooks/useBreakpoint';
 import styles from './Resume.module.css';
 
 const queries = {
-  xs: '(max-width: 576px)',
+  xs: '(min-width: 576px)',
   sm: '(max-width: 767px)',
   md: '(max-width: 991px)',
   lg: '(max-width: 1199px)',
@@ -23,7 +24,14 @@ const queries = {
 
 const Resume = (props) => {
   const matchPoints = useBreakpoint(queries);
-  console.log('breakpoints ' + matchPoints);
+  console.log(matchPoints);
+
+  const matches = { ...matchPoints };
+  console.log('sm: ' + matches.sm);
+
+  const rounded = classNames({
+    'rounded-top__left': matches.xs,
+  });
 
   return (
     <>
@@ -35,7 +43,7 @@ const Resume = (props) => {
           </header>
         </MDBRow> */}
         <MDBRow className="min-vh-100 shadow-1 mb-5">
-          <MDBCol md="5" className="g-0 rounded-top__left">
+          <MDBCol md="5" className={`g-0 ${rounded}`}>
             <SideBar>
               <Hero identity={props.identity} />
               <Summary summary={props.identity.summary} />
