@@ -15,11 +15,10 @@ import useBreakpoint from '../customHooks/useBreakpoint';
 import styles from './Resume.module.css';
 
 const queries = {
-  xs: '(min-width: 576px)',
-  sm: '(max-width: 767px)',
-  md: '(max-width: 991px)',
-  lg: '(max-width: 1199px)',
-  xl: '(max-width: 1399px)',
+  sm: '(min-width: 576px)',
+  md: '(min-width: 768px)',
+  lg: '(min-width: 992px)',
+  xl: '(min-width: 1200px)'
 };
 
 const Resume = (props) => {
@@ -30,7 +29,7 @@ const Resume = (props) => {
   console.log('sm: ' + matches.sm);
 
   const rounded = classNames({
-    'rounded-top__left': matches.xs,
+    'rounded-top__left': matches.sm,
   });
 
   return (
@@ -44,11 +43,9 @@ const Resume = (props) => {
         </MDBRow> */}
         <MDBRow className="min-vh-100 shadow-1 mb-5">
           <MDBCol md="5" className={`g-0 ${rounded}`}>
-            <SideBar>
               <Hero identity={props.identity} />
               <Summary summary={props.identity.summary} />
               <CoreCompetencies core={props.core} />
-            </SideBar>
           </MDBCol>
           <MDBCol md="7" className="g-0">
             <Main>

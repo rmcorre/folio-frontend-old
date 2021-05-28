@@ -22,7 +22,7 @@ const SiteNavbar = (props) => {
     <MDBNavbar
       expand="lg"
       dark
-      className={`shadow-0 mb-5 ${styles.bgColor} ${styles.mbCustom}`}
+      className={`shadow-0 ${styles.bgColor} ${styles.mbCustom}`}
     >
       <MDBContainer fluid>
         <MDBNavbarBrand href="#">Portfolio</MDBNavbarBrand>

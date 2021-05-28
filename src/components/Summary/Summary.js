@@ -18,7 +18,7 @@ const Summary = (props) => {
   };
 
   return (
-    <div>
+    <>
       {show && <EditSummaryForm onCancel={onCancelHandler} />}
       <section className={styles.wrapper}>
         <h4>
@@ -26,7 +26,7 @@ const Summary = (props) => {
         </h4>
         <p>{summary}</p>
       </section>
-    </div>
+    </>
   );
 };
 

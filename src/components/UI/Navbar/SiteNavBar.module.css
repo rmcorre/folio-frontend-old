@@ -1,9 +1,9 @@
 .bgColor {
-  background-color: #263238;
+  background-color: #4ebd0b;
 }
 
 .mbCustom {
-  margin: 0 0 5rem 0 !important;
+  margin: 0;
 }
 
 a:link,
@@ -13,4 +13,10 @@ a:active {
   color: inherit;
   cursor: pointer;
   transition: inherit;
+}
+
+@media (min-width: 768px) {
+  .mbCustom {
+    margin: 0 0 5rem 0 !important;
+  }
 }
