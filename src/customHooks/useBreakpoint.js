@@ -23,7 +23,7 @@ const useBreakpoint = (queries) => {
       setQueryMatch(updatedMatches);
     };
 
-    if (window && window.matcheMedia) {
+    if (window && window.matchMedia) {
       const matches = {};
       keys.forEach((media) => {
         if (typeof queries[media] === 'string') {
@@ -39,7 +39,7 @@ const useBreakpoint = (queries) => {
       isAttached = true;
       keys.forEach((media) => {
         if (typeof queries[media] === 'string') {
-          mediaQueryLists[media].addEventListener(handleQueryListener);
+          mediaQueryLists[media].addListener(handleQueryListener);
         }
       });
     }
@@ -56,6 +56,7 @@ const useBreakpoint = (queries) => {
     };
   }, [queries]);
 
+  console.log(queryMatch);
   return queryMatch;
 };
 
