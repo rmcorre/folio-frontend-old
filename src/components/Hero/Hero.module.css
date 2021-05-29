@@ -15,9 +15,10 @@
 .flexbox {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-@media (min-width: 32.5rem) {
+@media (min-width: 48rem) {
   .wrapper {
     padding: 2.5rem 2.5rem 3.125rem 2.5rem;
   }

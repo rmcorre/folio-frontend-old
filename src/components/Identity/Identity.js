@@ -14,9 +14,7 @@ const identity = (props) => {
   return (
     <>
       <h1 className="hide_element">Identity</h1>
-      <div className={styles.name}>
-        {fullName} <EditIcon />
-      </div>
+      <div className={styles.name}>{fullName}</div>
       <div className={styles.role}>{role}</div>
     </>
   );

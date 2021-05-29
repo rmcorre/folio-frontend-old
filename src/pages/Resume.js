@@ -18,7 +18,7 @@ const queries = {
   sm: '(min-width: 576px)',
   md: '(min-width: 768px)',
   lg: '(min-width: 992px)',
-  xl: '(min-width: 1200px)'
+  xl: '(min-width: 1200px)',
 };
 
 const Resume = (props) => {
@@ -42,12 +42,12 @@ const Resume = (props) => {
           </header>
         </MDBRow> */}
         <MDBRow className="min-vh-100 shadow-1 mb-5">
-          <MDBCol md="5" className={`g-0 ${rounded}`}>
-              <Hero identity={props.identity} />
-              <Summary summary={props.identity.summary} />
-              <CoreCompetencies core={props.core} />
+          <MDBCol sm="5" className={`g-0 ${rounded}`}>
+            <Hero identity={props.identity} />
+            <Summary summary={props.identity.summary} />
+            <CoreCompetencies core={props.core} />
           </MDBCol>
-          <MDBCol md="7" className="g-0">
+          <MDBCol sm="7" className="g-0">
             <Main>
               <EducationList educations={props.educations} />
               <WorkExperienceList experiences={props.experiences} />
