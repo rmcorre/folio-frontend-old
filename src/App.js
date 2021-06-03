@@ -81,6 +81,14 @@ class App extends Component {
             experiences={experiences}
           />
         </Route>
+        <Route path="/resume">
+          <Resume
+            identity={identity}
+            core={core}
+            educations={educations}
+            experiences={experiences}
+          />
+        </Route>
         <Route path="/admin">
           <Admin />
         </Route>

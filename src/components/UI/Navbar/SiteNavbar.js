@@ -39,12 +39,12 @@ const SiteNavbar = (props) => {
         <MDBCollapse navbar show={showNavNoTogglerSecond}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current="page" href="#">
+              {/* <MDBNavbarLink active aria-current="page" href="#">
                 Home
-              </MDBNavbarLink>
+              </MDBNavbarLink> */}
             </MDBNavbarItem>
             <MDBNavbarItem>
-              <MDBNavbarLink href="#">Resume</MDBNavbarLink>
+              <MDBNavbarLink href="/resume">Resume</MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink
