@@ -20,24 +20,28 @@ const Login = (props) => {
           </MDBCol>
         </MDBRow>
         <MDBRow>
-          <main className={styles.content}>
-            <form>
-              <MDBInput label="Email" id="email" type="email"></MDBInput>
-              <br />
-              <MDBInput
-                label="Password"
-                id="password"
-                type="password"
-              ></MDBInput>
-            </form>
-          </main>
+          <MDBCol>
+            <main className={styles.content}>
+              <form>
+                <MDBInput label="Email" id="email" type="email"></MDBInput>
+                <br />
+                <MDBInput
+                  label="Password"
+                  id="password"
+                  type="password"
+                ></MDBInput>
+              </form>
+            </main>
+          </MDBCol>
         </MDBRow>
         <MDBRow>
-          <footer className={styles.actions}>
-            <MDBBtn rounded className="col-6 mx-auto">
-              Login
-            </MDBBtn>
-          </footer>
+          <MDBCol>
+            <footer className={styles.actions}>
+              <MDBBtn rounded className="col-6 mx-auto">
+                Login
+              </MDBBtn>
+            </footer>
+          </MDBCol>
         </MDBRow>
       </MDBContainer>
     </Card>
