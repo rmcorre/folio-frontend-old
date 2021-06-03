@@ -10,12 +10,12 @@ const Admin = (props) => {
   return (
     <>
       <AdminNavbar />
-      <MDBContainer size="md" className={styles.wrapper}>
+      <MDBContainer size="md">
         <MDBRow>
           <header></header>
         </MDBRow>
         <MDBRow className="min-vh-100">
-          <MDBCol>
+          <MDBCol className="col-5 mx-auto">
             <Login></Login>
           </MDBCol>
         </MDBRow>
