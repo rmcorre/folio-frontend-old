@@ -8,11 +8,26 @@ const Login = (props) => {
   const [password, setPassword] = useState('');
   const [isValidEmail, setIsValidEmail] = useState();
   const [isValidPassword, setIsValidPassword] = useState();
+  const [isFormValid, setIsFormValid] = useState(false);
 
   console.log(email);
   console.log(password);
   console.log(isValidEmail);
   console.log(isValidPassword);
+
+  useEffect(() => {
+    //debouncing
+    const setTimeoutId = setTimeout(() => {
+      setIsFormValid(
+        email.includes('@') && password.trim().length >= 6
+      );
+    }, 500);
+
+    //clean-up function
+    return () => {
+      clearTimeout(setTimeoutId);
+    };
+  }, [email, password]);
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
@@ -32,20 +47,18 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    alert('Logged In');
+    props.onLogin(email, password);
   };
 
   return (
     <Card>
-      <header className={styles.header}>
-        <h2>Login</h2>
-      </header>
       <main className={`${styles.content}`}>
+        <h2>Login</h2>
         <form onSubmit={submitHandler}>
           <div
             className={`mb-3 ${isValidEmail === false ? styles.invalid : ''}`}
           >
-            <label htmlFor="emailInput" className="form-label">
+            <label htmlFor="emailInput" className="form-label mb-1">
               Email address
             </label>
             <input
@@ -56,16 +69,16 @@ const Login = (props) => {
               onChange={emailHandler}
               onBlur={validateEmailHandler}
             />
-            <div id="emailHelp" className="form-text">
+            {/* <div id="emailHelp" className="form-text">
               We'll never share your email with anyone else.
-            </div>
+            </div> */}
           </div>
           <div
-            className={`mb-3 ${
+            className={`mb-5 ${
               isValidPassword === false ? styles.invalid : ''
             }`}
           >
-            <label htmlFor="passwordInput" className="form-label">
+            <label htmlFor="passwordInput" className="form-label mb-1">
               Password
             </label>
             <input
@@ -76,8 +89,8 @@ const Login = (props) => {
               onBlur={validatePasswordHandler}
             />
           </div>
-          <div className={styles.actions}>
-            <button type="submit" className="btn btn-primary">
+          <div className={`d-grid ${styles.actions}`}>
+            <button type="submit" className="btn btn-primary" disabled={!isFormValid}>
               Submit
             </button>
           </div>

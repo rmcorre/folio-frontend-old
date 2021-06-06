@@ -37,15 +37,15 @@ const AdminNavbar = (props) => {
         </MDBNavbarToggler>
         <MDBCollapse navbar show={showNavNoTogglerSecond}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBNavbarLink active aria-current="page" href="#">
                 Home
               </MDBNavbarLink>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
             <MDBNavbarItem>
               <MDBNavbarLink href="#">Dashboard</MDBNavbarLink>
             </MDBNavbarItem>
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBNavbarLink
                 disabled
                 href="#"
@@ -54,9 +54,14 @@ const AdminNavbar = (props) => {
               >
                 Disabled
               </MDBNavbarLink>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
           </MDBNavbarNav>
           <MDBNavbarNav right fullWidth={false}>
+            <MDBNavbarItem>
+              <MDBNavbarLink onClick={props.onLogout}>
+                Logout
+              </MDBNavbarLink>
+            </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink className="waves-effect waves-light" to="#!">
                 <FontAwesomeIcon icon="user-circle" size="lg" />
