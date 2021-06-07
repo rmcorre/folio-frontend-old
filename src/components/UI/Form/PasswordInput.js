@@ -2,13 +2,16 @@ import React, { useEffect, useState } from 'react';
 import styles from './Input.module.css';
 
 const PasswordInput = (props) => {
-
   // useEffect(() => {
   //   props.getPasswordValidity(isValidPassword);
   // }, [props, isValidPassword]);
 
   return (
-    <div className={`mb-5 ${props.isValidPassword === false ? styles.invalid : ''}`}>
+    <div
+      className={`mb-5 ${
+        props.isValidPassword === false ? styles.invalid : ''
+      }`}
+    >
       <label htmlFor="passwordInput" className="form-label mb-1">
         Password
       </label>
