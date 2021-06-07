@@ -2,23 +2,23 @@ import React, { useEffect, useState } from 'react';
 import styles from './Input.module.css';
 
 const EmailInput = (props) => {
-  const [email, setEmail] = useState('');
-  const [isValidEmail, setIsValidEmail] = useState();
+  // const [email, setEmail] = useState('');
+  // const [isValidEmail, setIsValidEmail] = useState();
 
-  const emailHandler = (event) => {
-    setEmail(event.target.value);
-  };
+  // const emailHandler = (event) => {
+  //   setEmail(event.target.value);
+  // };
 
-  const validateEmailHandler = () => {
-    setIsValidEmail(email.includes('@'));
-  };
+  // const validateEmailHandler = () => {
+  //   setIsValidEmail(email.includes('@'));
+  // };
 
-  useEffect(() => {
-    props.getEmailValidity(isValidEmail);
-  }, [isValidEmail]);
+  // useEffect(() => {
+  //   props.getEmailValidity(isValidEmail);
+  // }, [props, isValidEmail]);
 
   return (
-    <div className={`mb-3 ${isValidEmail === false ? styles.invalid : ''}`}>
+    <div className={`mb-3 ${props.isValidEmail === false ? styles.invalid : ''}`}>
       <label htmlFor="emailInput" className="form-label mb-1">
         Email
       </label>
@@ -27,8 +27,8 @@ const EmailInput = (props) => {
         className="form-control"
         id="emailInput"
         aria-describedby="emailHelp"
-        onChange={emailHandler}
-        onBlur={validateEmailHandler}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
       />
       <div id="emailHelp" className="form-text"></div>
     </div>
