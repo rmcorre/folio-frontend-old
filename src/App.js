@@ -39,7 +39,7 @@ class App extends Component {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get(' http://192.168.1.73:8080/profiles').then((response) => {
+    axios.get(' http://localhost:8080/profiles').then((response) => {
       console.log(response.data.filter((profile) => profile.id === 1));
       this.setState({
         profile: response.data.filter((profile) => profile.id === 1),

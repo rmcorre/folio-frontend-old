@@ -6,16 +6,28 @@ import PasswordInput from '../UI/Form/PasswordInput';
 import styles from './Login.module.css';
 
 const Login = (props) => {
-  const [emailValidity, setEmailValidity] = useState(false);
-  const [passwordValidity, setPasswordValidity] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isValidEmail, setIsValidEmail] = useState();
+  const [password, setPassword] = useState('');
+  const [isValidPassword, setIsValidPassword] = useState();
   const [isFormValid, setIsFormValid] = useState(false);
 
-  const emailValidityHandler = (isValidEmail) => {
-    setEmailValidity(isValidEmail);
+  const emailHandler = (event) => {
+    setEmail(event.target.value);
+    validateEmailHandler();
   };
 
-  const passwordValidityHandler = (isValidPassword) => {
-    setPasswordValidity(isValidPassword);
+  const validateEmailHandler = () => {
+    setIsValidEmail(email.includes('@'));
+  };
+
+  const passwordHandler = (event) => {
+    setPassword(event.target.value);
+    validatePasswordHandler();
+  };
+
+  const validatePasswordHandler = () => {
+    setIsValidPassword(password.trim().length >= 6);
   };
 
   const submitHandler = (event) => {
@@ -24,16 +36,16 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    setIsFormValid(emailValidity && passwordValidity);
-  }, [emailValidity, passwordValidity]);
+    setIsFormValid(isValidEmail && isValidPassword);
+  }, [isValidEmail, isValidPassword]);
 
   return (
     <Card>
       <main className={`${styles.content}`}>
         <h2>Login</h2>
         <form onSubmit={submitHandler}>
-          <EmailInput getEmailValidity={emailValidityHandler} />
-          <PasswordInput getPasswordValidity={passwordValidityHandler} />
+          <EmailInput onChange={emailHandler} onBlur={validateEmailHandler} isValidEmail={isValidEmail}/>
+          <PasswordInput onChange={passwordHandler} onBlur={validatePasswordHandler} isValidPassword={isValidPassword} />
           <div className={`d-grid ${styles.actions}`}>
             <button
               type="submit"
