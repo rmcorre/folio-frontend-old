@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Input.module.css';
 
 const EmailInput = (props) => {
@@ -13,9 +13,13 @@ const EmailInput = (props) => {
     setIsValidEmail(email.includes('@'));
   };
 
+  useEffect(() => {
+    props.getEmailValidity(isValidEmail);
+  }, [isValidEmail]);
+
   return (
     <div className={`mb-3 ${isValidEmail === false ? styles.invalid : ''}`}>
-      <label htmlFor="emailInput" className="form-label">
+      <label htmlFor="emailInput" className="form-label mb-1">
         Email
       </label>
       <input
