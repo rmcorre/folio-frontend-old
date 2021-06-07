@@ -10,11 +10,12 @@ const Login = (props) => {
   const [isValidEmail, setIsValidEmail] = useState();
   const [password, setPassword] = useState('');
   const [isValidPassword, setIsValidPassword] = useState();
-  const [isFormValid, setIsFormValid] = useState(false);
+  const [isFormValid, setIsFormValid] = useState();
+
+  console.log(isValidPassword);
 
   const emailHandler = (event) => {
     setEmail(event.target.value);
-    validateEmailHandler();
   };
 
   const validateEmailHandler = () => {
@@ -23,7 +24,6 @@ const Login = (props) => {
 
   const passwordHandler = (event) => {
     setPassword(event.target.value);
-    validatePasswordHandler();
   };
 
   const validatePasswordHandler = () => {
@@ -36,16 +36,25 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    setIsFormValid(isValidEmail && isValidPassword);
-  }, [isValidEmail, isValidPassword]);
+    console.log('useEffect: ' + isValidEmail + ' ' + password.length);
+    setIsFormValid(email.includes('@') && password.trim().length >= 6);
+  });
 
   return (
     <Card>
       <main className={`${styles.content}`}>
         <h2>Login</h2>
         <form onSubmit={submitHandler}>
-          <EmailInput onChange={emailHandler} onBlur={validateEmailHandler} isValidEmail={isValidEmail}/>
-          <PasswordInput onChange={passwordHandler} onBlur={validatePasswordHandler} isValidPassword={isValidPassword} />
+          <EmailInput
+            onChange={emailHandler}
+            onBlur={validateEmailHandler}
+            isValidEmail={isValidEmail}
+          />
+          <PasswordInput
+            onChange={passwordHandler}
+            onBlur={validatePasswordHandler}
+            isValidPassword={isValidPassword}
+          />
           <div className={`d-grid ${styles.actions}`}>
             <button
               type="submit"
