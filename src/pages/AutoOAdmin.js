@@ -4,9 +4,9 @@ import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import AdminNavbar from '../components/UI/Navbar/AdminNavbar';
 import Login from '../components/Login/Login';
 
-import styles from './Admin.module.css';
+import styles from './ManualAdmin.module.css';
 
-const Admin = (props) => {
+const AuthOAdmin = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const loginHandler = () => {
@@ -22,19 +22,17 @@ const Admin = (props) => {
 
   return (
     <>
-      {isLoggedIn && <AdminNavbar onLogout={logoutHandler} />}
+      <AdminNavbar />
       <MDBContainer size="md">
         <MDBRow>
           <header></header>
         </MDBRow>
         <MDBRow className={`${styles.wrapper}`}>
-          <MDBCol className="col-4 mx-auto">
-            {!isLoggedIn && <Login onLogin={loginHandler} />}
-          </MDBCol>
+          <MDBCol className="col-4 mx-auto"></MDBCol>
         </MDBRow>
       </MDBContainer>
     </>
   );
 };
 
-export default Admin;
+export default AuthOAdmin;

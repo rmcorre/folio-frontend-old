@@ -2,7 +2,7 @@ import React, { Component, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 import Resume from './pages/Resume';
-import Admin from './pages/Admin';
+import AuthOAdmin from './pages/AutoOAdmin';
 
 import styles from './App.module.css';
 import './index.css';
@@ -90,7 +90,7 @@ class App extends Component {
           />
         </Route>
         <Route path="/admin">
-          <Admin />
+          <AuthOAdmin />
         </Route>
       </Switch>
     );
