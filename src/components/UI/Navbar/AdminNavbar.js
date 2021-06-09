@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useAuth0 } from "@auth0/auth0-react";
 
 import {
   MDBContainer,
@@ -15,6 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './AdminNavBar.module.css';
 
 const AdminNavbar = (props) => {
+  const { logout } = useAuth0();
   const [showNavNoTogglerSecond, setShowNavNoTogglerSecond] = useState(false);
 
   return (
@@ -58,7 +60,10 @@ const AdminNavbar = (props) => {
           </MDBNavbarNav>
           <MDBNavbarNav right fullWidth={false}>
             <MDBNavbarItem>
-              <MDBNavbarLink onClick={props.onLogout}>
+              <MDBNavbarLink onClick={() =>
+                logout({
+                  returnTo: window.location.origin,
+                })}>
                 Logout
               </MDBNavbarLink>
             </MDBNavbarItem>

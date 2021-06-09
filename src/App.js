@@ -1,8 +1,11 @@
-import React, { Component, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { useAuth0 } from "@auth0/auth0-react";
 import axios from 'axios';
 import Resume from './pages/Resume';
 import AuthOAdmin from './pages/AutoOAdmin';
+import Loading from './components/Loading/Loading';
+import ProtectedRoute from './auth/protected-route';
 
 import styles from './App.module.css';
 import './index.css';
@@ -30,29 +33,32 @@ library.add(
   faBars
 );
 
-class App extends Component {
-  state = {
-    profile: null,
-  };
-
-  componentDidMount() {
+const App = (props) => {
+  const { isLoading } = useAuth0();
+  const [profile, setProfile] = useState(null);
+  
+  useEffect(() => {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get(' http://192.168.1.73:8080/profiles').then((response) => {
+    axios.get(' http://localhost:8080/profiles').then((response) => {
       console.log(response.data.filter((profile) => profile.id === 1));
-      this.setState({
-        profile: response.data.filter((profile) => profile.id === 1),
-      });
+      setProfile(
+        response.data.find((profile) => profile.id === 1),
+      );
     });
+  }, []);
+
+  if (isLoading) {
+    return <Loading />;
   }
 
-  render() {
-    if (this.state.profile === null) {
+ 
+    if (profile === null) {
       return null;
     }
 
-    const profile = this.state.profile['0'];
+    // const profile = profile['0'];
 
     const identity = {
       name: profile.identity.name,
@@ -89,12 +95,9 @@ class App extends Component {
             experiences={experiences}
           />
         </Route>
-        <Route path="/admin">
-          <AuthOAdmin />
-        </Route>
+        <ProtectedRoute path="/admin" component={AuthOAdmin} />
       </Switch>
     );
   }
-}
 
 export default App;
