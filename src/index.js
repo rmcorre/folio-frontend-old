@@ -1,10 +1,11 @@
 import './sass/main.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
-
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
+
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import reportWebVitals from './reportWebVitals';
 
 // import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';
@@ -14,7 +15,9 @@ import './index.css';
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <Auth0ProviderWithHistory>
+        <App />
+      </Auth0ProviderWithHistory>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
