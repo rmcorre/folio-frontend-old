@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
+import AuthNav from './AuthNav';
 
 import {
   MDBContainer,
@@ -27,7 +28,7 @@ const SiteNavbar = (props) => {
       className={`shadow-0 ${styles.bgColor} ${styles.mbCustom}`}
     >
       <MDBContainer fluid>
-        <MDBNavbarBrand href="#">Portfolio</MDBNavbarBrand>
+        <MDBNavbarBrand href="#">Folio</MDBNavbarBrand>
         <MDBNavbarToggler
           type="button"
           data-target="#navbarTogglerDemo02"
@@ -41,9 +42,9 @@ const SiteNavbar = (props) => {
         <MDBCollapse navbar show={showNavNoTogglerSecond}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
-              {/* <MDBNavbarLink active aria-current="page" href="#">
-                Home
-              </MDBNavbarLink> */}
+              <MDBNavbarLink active aria-current="page" href="#">
+                Portfolio
+              </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href="/resume">Resume</MDBNavbarLink>
@@ -59,7 +60,10 @@ const SiteNavbar = (props) => {
               </MDBNavbarLink>
             </MDBNavbarItem>
           </MDBNavbarNav>
-          <MDBNavbarNav right fullWidth={false}>
+          <MDBNavbarNav fullWidth={false}>
+            <MDBNavbarItem>
+              <AuthNav />
+            </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink
                 className="waves-effect waves-light"

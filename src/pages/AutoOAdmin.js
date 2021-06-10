@@ -22,7 +22,7 @@ const AuthOAdmin = (props) => {
 
   return (
     <>
-      <AdminNavbar />
+      {/* <AdminNavbar /> */}
       <MDBContainer size="md">
         <MDBRow>
           <header></header>
