@@ -5,7 +5,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import Auth0ProviderWithHistory from './auth/auth0-provider-with-history';
 
-import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import 'bootstrap/scss/bootstrap.scss';
+// import 'mdb-react-ui-kit/dist/css/mdb.min.css';
 import reportWebVitals from './reportWebVitals';
 
 // import '../node_modules/bootstrap-css-only/css/bootstrap.min.css';

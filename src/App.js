@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
+
+import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
 import AuthOAdmin from './pages/AutoOAdmin';
+import SiteNavBar from './components/UI/Navbar/SiteNavbar';
+import Navbar from './components/UI/Navbar/NavBar';
 import Loading from './components/Loading/Loading';
 import ProtectedRoute from './auth/protected-route';
 
@@ -36,56 +40,48 @@ library.add(
 const App = (props) => {
   const { isLoading } = useAuth0();
   const [profile, setProfile] = useState(null);
-  
+
   useEffect(() => {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get(' http://localhost:8080/profiles').then((response) => {
+    axios.get('http://192.168.1.73:8080/profiles').then((response) => {
       console.log(response.data.filter((profile) => profile.id === 1));
-      setProfile(
-        response.data.find((profile) => profile.id === 1),
-      );
+      setProfile(response.data.find((profile) => profile.id === 1));
     });
   }, []);
+
+  if (profile === null) {
+    return null;
+  }
 
   if (isLoading) {
     return <Loading />;
   }
 
- 
-    if (profile === null) {
-      return null;
-    }
+  const identity = {
+    name: profile.identity.name,
+    role: profile.identity.role,
+    contact: profile.identity.contact,
+    summary: profile.identity.summary,
+  };
 
-    // const profile = profile['0'];
+  const core = {
+    concepts: profile.industry.concepts,
+    techs: profile.industry.techs,
+    frameworks: profile.industry.frameworks,
+    tools: profile.industry.tools,
+  };
 
-    const identity = {
-      name: profile.identity.name,
-      role: profile.identity.role,
-      contact: profile.identity.contact,
-      summary: profile.identity.summary,
-    };
+  const educations = profile.educations;
+  const experiences = profile.experiences;
 
-    const core = {
-      concepts: profile.industry.concepts,
-      techs: profile.industry.techs,
-      frameworks: profile.industry.frameworks,
-      tools: profile.industry.tools,
-    };
-
-    const educations = profile.educations;
-    const experiences = profile.experiences;
-
-    return (
+  return (
+    <>
+      <Navbar></Navbar>
       <Switch>
         <Route path="/" exact>
-          <Resume
-            identity={identity}
-            core={core}
-            educations={educations}
-            experiences={experiences}
-          />
+          <Portfolio />
         </Route>
         <Route path="/resume">
           <Resume
@@ -97,7 +93,8 @@ const App = (props) => {
         </Route>
         <ProtectedRoute path="/admin" component={AuthOAdmin} />
       </Switch>
-    );
-  }
+    </>
+  );
+};
 
 export default App;

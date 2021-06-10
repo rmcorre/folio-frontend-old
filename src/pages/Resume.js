@@ -34,7 +34,7 @@ const Resume = (props) => {
 
   return (
     <>
-      <SiteNavBar />
+      {/* <SiteNavBar /> */}
       <MDBContainer size="md">
         <h1 className="hide_element">Resume</h1>
         {/* <MDBRow>
