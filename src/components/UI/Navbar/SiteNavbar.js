@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
 import AuthNav from './AuthNav';
 
 import {
@@ -18,7 +16,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './SiteNavBar.module.css';
 
 const SiteNavbar = (props) => {
-  const { loginWithRedirect } = useAuth0();
   const [showNavNoTogglerSecond, setShowNavNoTogglerSecond] = useState(false);
 
   return (
@@ -64,20 +61,6 @@ const SiteNavbar = (props) => {
             <MDBNavbarItem>
               <AuthNav />
             </MDBNavbarItem>
-            {/* <MDBNavbarItem>
-              <MDBNavbarLink
-                className="waves-effect waves-light"
-                onClick={() =>
-                  loginWithRedirect({
-                    redirectUri: 'http://localhost:3000/admin',
-                  })
-                }
-              >
-                <Link to="/admin">
-                  <FontAwesomeIcon icon="user-circle" size="lg" />
-                </Link>
-              </MDBNavbarLink>
-            </MDBNavbarItem> */}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>

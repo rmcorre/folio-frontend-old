@@ -36,9 +36,8 @@ const Login = (props) => {
   };
 
   useEffect(() => {
-    console.log('useEffect: ' + isValidEmail + ' ' + password.length);
     setIsFormValid(email.includes('@') && password.trim().length >= 6);
-  });
+  }, [isValidEmail, password, email]);
 
   return (
     <Card>

@@ -5,13 +5,8 @@ import axios from 'axios';
 
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
-import AuthOAdmin from './pages/AutoOAdmin';
-import SiteNavBar from './components/UI/Navbar/SiteNavbar';
-import Navbar from './components/UI/Navbar/NavBar';
 import Loading from './components/Loading/Loading';
-import ProtectedRoute from './auth/protected-route';
 
-import styles from './App.module.css';
 import './index.css';
 import './accessibility.css';
 
@@ -38,16 +33,14 @@ library.add(
 );
 
 const App = (props) => {
-  const { isLoading, isAuthenticated } = useAuth0();
-  console.log(isAuthenticated);
+  const { isLoading } = useAuth0();
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get('http://localhost:8080/profiles').then((response) => {
-      console.log(response.data.filter((profile) => profile.id === 1));
+    axios.get('http://192.168.1.73:8080/profiles').then((response) => {
       setProfile(response.data.find((profile) => profile.id === 1));
     });
   }, []);
@@ -59,13 +52,6 @@ const App = (props) => {
   if (isLoading) {
     return <Loading />;
   }
-
- 
-  if (profile === null) {
-    return null;
-  }
-
-  // const profile = profile['0'];
 
   const identity = {
     name: profile.identity.name,
@@ -88,12 +74,6 @@ const App = (props) => {
     <Switch>
       <Route path="/" exact>
         <Portfolio />
-        {/* <Resume
-          identity={identity}
-          core={core}
-          educations={educations}
-          experiences={experiences}
-        /> */}
       </Route>
       <Route path="/resume">
         <Resume
@@ -103,9 +83,8 @@ const App = (props) => {
           experiences={experiences}
         />
       </Route>
-      <ProtectedRoute path="/admin" component={AuthOAdmin} />
     </Switch>
   );
-}
+};
 
 export default App;
