@@ -2,8 +2,7 @@ import React from 'react';
 import { MDBContainer, MDBRow, MDBCol } from 'mdb-react-ui-kit';
 import classNames from 'classnames';
 
-import SiteNavBar from '../components/UI/Navbar/SiteNavbar';
-import SideBar from '@sideBar/SideBar';
+import NavBar from '../components/UI/Navbar/NavBar';
 import Main from '@main/Main';
 import Hero from '@hero/Hero';
 import Summary from '@summary/Summary';
@@ -34,7 +33,7 @@ const Resume = (props) => {
 
   return (
     <>
-      <SiteNavBar />
+      <NavBar />
       <MDBContainer size="md">
         <h1 className="hide_element">Resume</h1>
         {/* <MDBRow>
