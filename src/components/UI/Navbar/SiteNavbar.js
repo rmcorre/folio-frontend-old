@@ -64,7 +64,7 @@ const SiteNavbar = (props) => {
             <MDBNavbarItem>
               <AuthNav />
             </MDBNavbarItem>
-            <MDBNavbarItem>
+            {/* <MDBNavbarItem>
               <MDBNavbarLink
                 className="waves-effect waves-light"
                 onClick={() =>
@@ -77,7 +77,7 @@ const SiteNavbar = (props) => {
                   <FontAwesomeIcon icon="user-circle" size="lg" />
                 </Link>
               </MDBNavbarLink>
-            </MDBNavbarItem>
+            </MDBNavbarItem> */}
           </MDBNavbarNav>
         </MDBCollapse>
       </MDBContainer>
