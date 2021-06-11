@@ -38,14 +38,15 @@ library.add(
 );
 
 const App = (props) => {
-  const { isLoading } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
+  console.log(isAuthenticated);
   const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get('http://192.168.1.73:8080/profiles').then((response) => {
+    axios.get('http://localhost:8080/profiles').then((response) => {
       console.log(response.data.filter((profile) => profile.id === 1));
       setProfile(response.data.find((profile) => profile.id === 1));
     });
@@ -58,6 +59,13 @@ const App = (props) => {
   if (isLoading) {
     return <Loading />;
   }
+
+ 
+  if (profile === null) {
+    return null;
+  }
+
+  // const profile = profile['0'];
 
   const identity = {
     name: profile.identity.name,
@@ -77,24 +85,27 @@ const App = (props) => {
   const experiences = profile.experiences;
 
   return (
-    <>
-      <Navbar></Navbar>
-      <Switch>
-        <Route path="/" exact>
-          <Portfolio />
-        </Route>
-        <Route path="/resume">
-          <Resume
-            identity={identity}
-            core={core}
-            educations={educations}
-            experiences={experiences}
-          />
-        </Route>
-        <ProtectedRoute path="/admin" component={AuthOAdmin} />
-      </Switch>
-    </>
+    <Switch>
+      <Route path="/" exact>
+        <Portfolio />
+        {/* <Resume
+          identity={identity}
+          core={core}
+          educations={educations}
+          experiences={experiences}
+        /> */}
+      </Route>
+      <Route path="/resume">
+        <Resume
+          identity={identity}
+          core={core}
+          educations={educations}
+          experiences={experiences}
+        />
+      </Route>
+      <ProtectedRoute path="/admin" component={AuthOAdmin} />
+    </Switch>
   );
-};
+}
 
 export default App;

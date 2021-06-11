@@ -1,14 +1,18 @@
 import React from 'react';
+import SiteNavbar from '../components/UI/Navbar/SiteNavbar';
 
 const Portfolio = (props) => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <h1>Portfolio Page</h1>
+    <>
+      <SiteNavbar />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h1>Portfolio Page</h1>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
