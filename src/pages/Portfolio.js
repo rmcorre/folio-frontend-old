@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from '../components/UI/Navbar/NavBar';
+import Navbar from '../components/UI/Navbar/SiteNavBar';
 
 const Portfolio = (props) => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container">
         <div className="row">
           <div className="col">

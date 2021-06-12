@@ -1,16 +1,17 @@
 import React from 'react';
-import MainNav from './MainNav';
+import AdminNav from './AdminNav';
+import AuthNav from './AuthNav';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './NavBar.module.css';
 
-const SiteNavBar = (props) => {
+const AdminNavbar = (props) => {
   return (
     <nav
       className={`navbar navbar-expand-lg navbar-dark mb-5 ${styles.bgColor}`}
     >
       <div className="container-fluid">
-        <a className={`navbar-brand`} href="/">
+        <a className="navbar-brand" href="#">
           <FontAwesomeIcon
             className="text-info ms-3"
             icon="suitcase"
@@ -29,11 +30,12 @@ const SiteNavBar = (props) => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <MainNav />
+          <AdminNav />
+          <AuthNav />
         </div>
       </div>
     </nav>
   );
 };
 
-export default SiteNavBar;
+export default AdminNavbar;
