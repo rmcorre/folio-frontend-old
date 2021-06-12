@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
+import ProtectedRoute from './auth/protected-route';
+import SiteNavBar from './components/UI/Navbar/SiteNavBar';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
+import Admin from './pages/Admin';
 import Loading from './components/Loading/Loading';
 
 import './index.css';
@@ -20,7 +23,9 @@ import {
   faUserCircle,
   faPrint,
   faBars,
+  faSuitcase,
 } from '@fortawesome/free-solid-svg-icons';
+import AdminNavbar from './components/UI/Navbar/AdminNavBar';
 
 library.add(
   faEnvelope,
@@ -29,18 +34,21 @@ library.add(
   faMapMarkerAlt,
   faUserCircle,
   faPrint,
-  faBars
+  faBars,
+  faSuitcase
 );
 
 const App = (props) => {
   const { isLoading } = useAuth0();
   const [profile, setProfile] = useState(null);
+  const location = useLocation();
+  console.log(location);
 
   useEffect(() => {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get('http://192.168.1.73:8080/profiles').then((response) => {
+    axios.get('http://localhost:8080/profiles').then((response) => {
       setProfile(response.data.find((profile) => profile.id === 1));
     });
   }, []);
@@ -71,19 +79,23 @@ const App = (props) => {
   const experiences = profile.experiences;
 
   return (
-    <Switch>
-      <Route path="/" exact>
-        <Portfolio />
-      </Route>
-      <Route path="/resume">
-        <Resume
-          identity={identity}
-          core={core}
-          educations={educations}
-          experiences={experiences}
-        />
-      </Route>
-    </Switch>
+    <>
+      {location.pathname === '/' || location.pathname === '/resume' ? <SiteNavBar /> : <AdminNavbar />}
+      <Switch>
+        <Route path="/" exact>
+          <Portfolio />
+        </Route>
+        <Route path="/resume">
+          <Resume
+            identity={identity}
+            core={core}
+            educations={educations}
+            experiences={experiences}
+          />
+        </Route>
+        <ProtectedRoute path='/admin' component={Admin} />
+      </Switch>
+    </>
   );
 };
 
