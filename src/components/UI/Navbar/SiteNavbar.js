@@ -1,13 +1,15 @@
 import React from 'react';
-import MainNav from './MainNav';
+
+import { Navbar } from 'bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import MainNav from './MainNav';
 
 import styles from './NavBar.module.css';
 
 const SiteNavBar = (props) => {
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-dark mb-5 ${styles.bgColor}`}
+      className={`navbar navbar-expand-lg navbar-dark mb-md-5 ${styles.bgColor}`}
     >
       <div className="container-fluid">
         <a className={`navbar-brand`} href="/">

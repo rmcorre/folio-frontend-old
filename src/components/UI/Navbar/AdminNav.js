@@ -1,25 +1,20 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const MainNav = (props) => {
-
   return (
     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-      
       <li className="nav-item">
-        <a className="nav-link" href="/resume">
-          Dashboard
-        </a>
-      </li>
-      {/* <li className="nav-item">
-        <a
-          className="nav-link disabled"
-          href="#"
-          tabIndex="-1"
-          aria-disabled="true"
+        <NavLink
+          exact
+          to="/admin"
+          className="nav-link"
+          activeClassName="active"
+          aria-current="page"
         >
-          Disabled
-        </a>
-      </li> */}
+          Dashboard
+        </NavLink>
+      </li>
     </ul>
   );
 };
