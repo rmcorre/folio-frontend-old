@@ -1,7 +1,9 @@
 import React from 'react';
+
+import { Navbar } from 'bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminNav from './AdminNav';
 import AuthNav from './AuthNav';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import styles from './NavBar.module.css';
 

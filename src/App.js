@@ -4,7 +4,6 @@ import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
 import ProtectedRoute from './auth/protected-route';
-import SiteNavBar from './components/UI/Navbar/SiteNavBar';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
 import Admin from './pages/Admin';
@@ -48,7 +47,7 @@ const App = (props) => {
     // http://localhost:8080 (when on this device)
     // http://192.168.1.73:8080 (when on another another device)
 
-    axios.get('http://localhost:8080/profiles').then((response) => {
+    axios.get('http://192.168.1.73:8080/profiles').then((response) => {
       setProfile(response.data.find((profile) => profile.id === 1));
     });
   }, []);
@@ -80,7 +79,6 @@ const App = (props) => {
 
   return (
     <>
-      {location.pathname === '/' || location.pathname === '/resume' ? <SiteNavBar /> : <AdminNavbar />}
       <Switch>
         <Route path="/" exact>
           <Portfolio />
@@ -93,7 +91,7 @@ const App = (props) => {
             experiences={experiences}
           />
         </Route>
-        <ProtectedRoute path='/admin' component={Admin} />
+        <ProtectedRoute path="/admin" component={Admin} />
       </Switch>
     </>
   );

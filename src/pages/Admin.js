@@ -1,15 +1,18 @@
 import React from 'react';
+import AdminNavBar from '../components/UI/Navbar/AdminNavBar';
 
 const Admin = (props) => {
-
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col">
-          <h1>Dashboard</h1>
+    <>
+      <AdminNavBar />
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <h1>Dashboard</h1>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
