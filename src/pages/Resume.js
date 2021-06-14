@@ -28,7 +28,7 @@ const Resume = (props) => {
   return (
     <>
       <SiteNavbar />
-      <div className="container">
+      <div className="container mt-md-5">
         <h1 className="hide_element">Resume</h1>
         <div className="row min-vh-100 shadow-1 mb-5">
           <div className={`col-sm-5 g-0 ${rounded}`}>
