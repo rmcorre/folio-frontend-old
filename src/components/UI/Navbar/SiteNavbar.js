@@ -9,7 +9,7 @@ import styles from './NavBar.module.css';
 const SiteNavBar = (props) => {
   return (
     <nav
-      className={`navbar navbar-expand-lg navbar-dark mb-md-5 ${styles.bgColor}`}
+      className={`navbar navbar-expand-lg navbar-dark ${styles.bgColor}`}
     >
       <div className="container-fluid">
         <a className={`navbar-brand`} href="/">
