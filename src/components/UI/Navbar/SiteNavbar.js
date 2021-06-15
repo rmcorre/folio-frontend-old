@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Navbar } from 'bootstrap';
+import { Navbar } from 'bootstrap'; //Need this to use collapse functionality
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import MainNav from './MainNav';
 
@@ -8,9 +8,7 @@ import styles from './NavBar.module.css';
 
 const SiteNavBar = (props) => {
   return (
-    <nav
-      className={`navbar navbar-expand-lg navbar-dark ${styles.bgColor}`}
-    >
+    <nav className={`navbar navbar-expand-lg navbar-dark ${styles.bgColor}`}>
       <div className="container-fluid">
         <a className={`navbar-brand`} href="/">
           <FontAwesomeIcon

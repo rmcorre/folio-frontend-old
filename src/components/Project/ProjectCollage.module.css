@@ -1,0 +1,14 @@
+.monitorWrapper {
+  position: relative;
+}
+
+.monitor {
+  position: absolute;
+  z-index: 10;
+}
+
+.resumeClip {
+  position: absolute;
+  left: 13px;
+  top: 19px;
+}

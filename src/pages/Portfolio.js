@@ -1,6 +1,7 @@
 import React from 'react';
 import SiteNavbar from '../components/UI/Navbar/SiteNavbar';
 
+import ProjectCollage from '../components/Project/ProjectCollage';
 import ProjectText from '../components/Project/ProjectText';
 
 import styles from './Portfolio.module.css';
@@ -18,12 +19,12 @@ const Portfolio = (props) => {
       </div>
       <div className="container">
         <div className="row mt-5">
-            <div className="col-6">
-              <ProjectText />
-            </div>
-            <div className="col-6">
-              <ProjectText />
-            </div>
+          <div className="col-6">
+            <ProjectCollage />
+          </div>
+          <div className="col-6">
+            <ProjectText />
+          </div>
         </div>
       </div>
     </>
