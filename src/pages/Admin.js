@@ -1,5 +1,6 @@
 import React from 'react';
 import AdminNavBar from '../components/UI/Navbar/AdminNavBar';
+import SignupForm from '../components/SignupForm/SignupForm';
 
 const Admin = (props) => {
   return (
@@ -9,6 +10,7 @@ const Admin = (props) => {
         <div className="row">
           <div className="col">
             <h1>Dashboard</h1>
+            <SignupForm />
           </div>
         </div>
       </div>
