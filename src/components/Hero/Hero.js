@@ -24,7 +24,7 @@ const Hero = (props) => {
   });
 
   return (
-    <section className={`${styles.wrapper} ${rounded}`}>
+    <section className={`${props.className} ${styles.wrapper} ${rounded} bg-secondary`}>
       <Identity name={props.identity.name} role={props.identity.role} />
       <div className={styles.flexbox}>
         <Contact contact={props.identity.contact} />
