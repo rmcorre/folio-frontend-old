@@ -6,7 +6,7 @@ const Summary = (props) => {
 
   return (
     <>
-      <section className={styles.wrapper}>
+      <section className={`${props.className} ${styles.wrapper}`}>
         <h4>
           About Me
         </h4>

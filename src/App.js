@@ -91,7 +91,9 @@ const App = (props) => {
             experiences={experiences}
           />
         </Route>
-        <ProtectedRoute path="/admin" component={Admin} />
+        <ProtectedRoute path="/admin" >
+          <Admin identity={identity}/>
+        </ProtectedRoute>
       </Switch>
     </>
   );
