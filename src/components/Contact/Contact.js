@@ -9,7 +9,7 @@ const contact = (props) => {
   const location = island + ', ' + region;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={`${props.className} ${styles.wrapper}`}>
       <div>{phone}</div>
       <div>{location}</div>
       <div>{email}</div>

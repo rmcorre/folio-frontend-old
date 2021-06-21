@@ -2,7 +2,7 @@ import React from 'react';
 import EditIcon from '../UI/EditIcon';
 import styles from './Identity.module.css';
 
-const identity = (props) => {
+const Identity = (props) => {
   const first = props.name.first;
   const last = props.name.last;
   const fullName = first + ' ' + last;
@@ -20,4 +20,4 @@ const identity = (props) => {
   );
 };
 
-export default identity;
+export default Identity;
