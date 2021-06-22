@@ -50,7 +50,7 @@ const App = (props) => {
     axios.get('http://localhost:8080/profiles').then((response) => {
       setProfile(response.data.find((profile) => profile.id === 1));
     });
-  }, []);
+  }, [profile]);
 
   if (profile === null) {
     return null;
