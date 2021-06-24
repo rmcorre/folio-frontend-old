@@ -1,10 +1,14 @@
 import React from 'react';
+
+import { usePortfolioAPI } from '../../store/portfolioContext';
 import Education from '../Education/Education';
 
 import styles from './EducationList.module.css';
 
 const EducationList = (props) => {
-  const educationList = props.educations.map(
+  const { educations } = usePortfolioAPI();
+
+  const educationList = educations.map(
     ({
       id,
       institution,

@@ -38,7 +38,7 @@ const Resume = (props) => {
           </div>
           <div className="col-sm-7 g-0">
             <Main>
-              <EducationList educations={props.educations} />
+              <EducationList />
               <WorkExperienceList experiences={props.experiences} />
             </Main>
           </div>
