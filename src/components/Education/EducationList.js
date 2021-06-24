@@ -1,9 +1,9 @@
-import React from "react";
-import Education from "../Education/Education";
+import React from 'react';
+import Education from '../Education/Education';
 
-import styles from "./EducationList.module.css";
+import styles from './EducationList.module.css';
 
-const educationList = (props) => {
+const EducationList = (props) => {
   const educationList = props.educations.map(
     ({
       id,
@@ -32,4 +32,4 @@ const educationList = (props) => {
   );
 };
 
-export default educationList;
+export default EducationList;
