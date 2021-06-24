@@ -1,13 +1,13 @@
-import React from "react";
-import styles from "./Education.module.css";
+import React from 'react';
+import styles from './Education.module.css';
 
-const education = (props) => {
+const Education = (props) => {
   const course = props.course;
   const institution = props.institution;
   const startDate = props.startDate;
   const endDate = props.endDate;
   const country = props.country;
-  const institutionLine = institution + " | " + startDate + " - " + endDate;
+  const institutionLine = institution + ' | ' + startDate + ' - ' + endDate;
 
   return (
     <div className={styles.wrapper}>
@@ -19,4 +19,4 @@ const education = (props) => {
   );
 };
 
-export default education;
+export default Education;
