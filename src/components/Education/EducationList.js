@@ -1,10 +1,14 @@
-import React from "react";
-import Education from "../Education/Education";
+import React from 'react';
 
-import styles from "./EducationList.module.css";
+import { usePortfolioAPI } from '../../store/portfolioContext';
+import Education from '../Education/Education';
 
-const educationList = (props) => {
-  const educationList = props.educations.map(
+import styles from './EducationList.module.css';
+
+const EducationList = (props) => {
+  const { educations } = usePortfolioAPI();
+
+  const educationList = educations.map(
     ({
       id,
       institution,
@@ -32,4 +36,4 @@ const educationList = (props) => {
   );
 };
 
-export default educationList;
+export default EducationList;
