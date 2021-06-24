@@ -34,7 +34,7 @@ const Resume = (props) => {
           <div className={`col-sm-5 g-0 ${rounded}`}>
             <Hero />
             <Summary />
-            <SkillSet core={props.core} />
+            <SkillSet />
           </div>
           <div className="col-sm-7 g-0">
             <Main>

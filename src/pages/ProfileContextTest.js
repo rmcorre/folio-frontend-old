@@ -18,7 +18,7 @@ const ProfileContextTest = (props) => {
         <li>{profile.phoneNumber}</li>
         <li>{profile.summary}</li>
       </ul>
-      <SkillSet core={skillSet} />
+      <SkillSet />
       <EducationList educations={educations} />
       <WorkExperienceList experiences={experiences} />
     </div>
