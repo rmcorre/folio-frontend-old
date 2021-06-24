@@ -33,6 +33,9 @@ export function PortfolioContextProvider({ children }) {
   const countryCode = portfolio.identity.contact.phone.countryCode;
   const number = portfolio.identity.contact.phone.number;
   const phoneNumber = countryCode + ' ' + number;
+  const island = portfolio.identity.contact.address.island;
+  const region = portfolio.identity.contact.address.region;
+  const location = island + ', ' + region;
   const summary = portfolio.identity.summary.summary;
   const concepts = portfolio.industry.concepts;
   const techs = portfolio.industry.techs;
@@ -49,6 +52,7 @@ export function PortfolioContextProvider({ children }) {
           role: role,
           email: email,
           phoneNumber: phoneNumber,
+          location: location,
           summary: summary,
         },
         skillSet: {

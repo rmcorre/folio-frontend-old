@@ -1,20 +1,18 @@
 import React from 'react';
+
+import { usePortfolioAPI } from '../../store/portfolioContext';
 import styles from './Contact.module.css';
 
-const contact = (props) => {
-  const email = props.contact.email.email;
-  const phone = props.contact.phone.number;
-  const island = props.contact.address.island;
-  const region = props.contact.address.region;
-  const location = island + ', ' + region;
+const Contact = (props) => {
+  const { profile } = usePortfolioAPI();
 
   return (
     <div className={`${props.className} ${styles.wrapper}`}>
-      <div>{phone}</div>
-      <div>{location}</div>
-      <div>{email}</div>
+      <div>{profile.email}</div>
+      <div>{profile.phoneNumber}</div>
+      <div>{profile.location}</div>
     </div>
   );
 };
 
-export default contact;
+export default Contact;
