@@ -32,7 +32,7 @@ const Resume = (props) => {
         <h1 className="hide_element">Resume</h1>
         <div className="row min-vh-100 shadow-1 mb-5">
           <div className={`col-sm-5 g-0 ${rounded}`}>
-            <Hero identity={props.identity} />
+            <Hero />
             <Summary summary={props.identity.summary} />
             <CoreCompetencies core={props.core} />
           </div>
