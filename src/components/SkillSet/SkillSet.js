@@ -1,27 +1,30 @@
 import React from 'react';
 
+import { usePortfolioAPI } from '../../store/portfolioContext';
 import Grid from '../Grid/Grid';
 import Concept from '@concept/Concept';
 import Tech from '@tech/Tech';
 import Framework from '@framework/Framework';
 import Tool from '@tool/Tool';
 
-import styles from './CoreCompetencies.module.css';
+import styles from './SkillSet.module.css';
 
-const coreCompetencies = (props) => {
-  const concepts = props.core.concepts.map(({ id, concept }) => (
+const SkillSet = (props) => {
+  const { skillSet } = usePortfolioAPI();
+
+  const concepts = skillSet.concepts.map(({ id, concept }) => (
     <Concept key={id} concept={concept} />
   ));
 
-  const techs = props.core.techs.map(({ id, tech }) => (
+  const techs = skillSet.techs.map(({ id, tech }) => (
     <Tech key={id} language={tech} />
   ));
 
-  const frameworks = props.core.frameworks.map(({ id, framework }) => (
+  const frameworks = skillSet.frameworks.map(({ id, framework }) => (
     <Framework key={id} framework={framework} />
   ));
 
-  const tools = props.core.tools.map(({ id, tool }) => (
+  const tools = skillSet.tools.map(({ id, tool }) => (
     <Tool key={id} tool={tool} />
   ));
 
@@ -36,4 +39,4 @@ const coreCompetencies = (props) => {
   );
 };
 
-export default coreCompetencies;
+export default SkillSet;
