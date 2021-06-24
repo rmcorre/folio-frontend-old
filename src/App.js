@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { Route, Switch, useLocation } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import axios from 'axios';
 
+import ProfileContext from './store/profile-context';
+import { PortfolioContextProvider } from './store/portfolioContext';
 import ProtectedRoute from './auth/protected-route';
 import Portfolio from './pages/Portfolio';
 import Resume from './pages/Resume';
 import Admin from './pages/Admin';
+import ProfileContextTest from './pages/ProfileContextTest';
 import Loading from './components/Loading/Loading';
 
 import './index.css';
@@ -40,8 +43,7 @@ library.add(
 const App = (props) => {
   const { isLoading } = useAuth0();
   const [profile, setProfile] = useState(null);
-  const location = useLocation();
-  console.log(location);
+  console.log(JSON.stringify(profile, null, 2));
 
   useEffect(() => {
     // http://localhost:8080 (when on this device)
@@ -50,8 +52,10 @@ const App = (props) => {
     axios.get('http://localhost:8080/profiles').then((response) => {
       setProfile(response.data.find((profile) => profile.id === 1));
     });
-  }, [profile]);
+  }, []);
 
+  // Needed to prevent component from mounting and therefore throwing
+  // errors because profile state is still null until useEffect runs
   if (profile === null) {
     return null;
   }
@@ -76,9 +80,14 @@ const App = (props) => {
 
   const educations = profile.educations;
   const experiences = profile.experiences;
+  console.log(profile);
 
   return (
-    <>
+    <ProfileContext.Provider
+      value={{
+        profile: profile,
+      }}
+    >
       <Switch>
         <Route path="/" exact>
           <Portfolio />
@@ -91,11 +100,14 @@ const App = (props) => {
             experiences={experiences}
           />
         </Route>
-        <ProtectedRoute path="/admin" >
-          <Admin identity={identity}/>
-        </ProtectedRoute>
+        <PortfolioContextProvider>
+          <Route path="/context">
+            <ProfileContextTest />
+          </Route>
+        </PortfolioContextProvider>
+        <ProtectedRoute path="/admin" component={Admin} />
       </Switch>
-    </>
+    </ProfileContext.Provider>
   );
 };
 
