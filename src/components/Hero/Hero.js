@@ -24,10 +24,12 @@ const Hero = (props) => {
   });
 
   return (
-    <section className={`${props.className} ${styles.wrapper} ${rounded} bg-secondary`}>
-      <Identity name={props.identity.name} role={props.identity.role} />
+    <section
+      className={`${props.className} ${styles.wrapper} ${rounded} bg-secondary`}
+    >
+      <Identity />
       <div className={styles.flexbox}>
-        <Contact contact={props.identity.contact} />
+        <Contact />
         <Avatar />
       </div>
     </section>

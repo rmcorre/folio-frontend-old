@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 
 import SiteNavbar from '../components/UI/Navbar/SiteNavbar';
@@ -32,8 +32,8 @@ const Resume = (props) => {
         <h1 className="hide_element">Resume</h1>
         <div className="row min-vh-100 shadow-1 mb-5">
           <div className={`col-sm-5 g-0 ${rounded}`}>
-            <Hero identity={props.identity} />
-            <Summary summary={props.identity.summary} />
+            <Hero />
+            <Summary />
             <CoreCompetencies core={props.core} />
           </div>
           <div className="col-sm-7 g-0">
