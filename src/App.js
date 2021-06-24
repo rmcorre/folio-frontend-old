@@ -95,7 +95,6 @@ const App = (props) => {
         <PortfolioContextProvider>
           <Route path="/resume">
             <Resume
-              identity={identity}
               core={core}
               educations={educations}
               experiences={experiences}
