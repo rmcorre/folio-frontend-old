@@ -33,7 +33,7 @@ const Resume = (props) => {
         <div className="row min-vh-100 shadow-1 mb-5">
           <div className={`col-sm-5 g-0 ${rounded}`}>
             <Hero />
-            <Summary summary={props.identity.summary} />
+            <Summary />
             <CoreCompetencies core={props.core} />
           </div>
           <div className="col-sm-7 g-0">
