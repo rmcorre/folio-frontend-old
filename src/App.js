@@ -92,15 +92,15 @@ const App = (props) => {
         <Route path="/" exact>
           <Portfolio />
         </Route>
-        <Route path="/resume">
-          <Resume
-            identity={identity}
-            core={core}
-            educations={educations}
-            experiences={experiences}
-          />
-        </Route>
         <PortfolioContextProvider>
+          <Route path="/resume">
+            <Resume
+              identity={identity}
+              core={core}
+              educations={educations}
+              experiences={experiences}
+            />
+          </Route>
           <Route path="/context">
             <ProfileContextTest />
           </Route>
