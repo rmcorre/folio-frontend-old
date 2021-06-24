@@ -7,7 +7,7 @@ import Hero from '@hero/Hero';
 import Summary from '@summary/Summary';
 import EducationList from '@education/EducationList';
 import WorkExperienceList from '@workExperience/WorkExperienceList';
-import CoreCompetencies from '@coreCompetencies/CoreCompetencies';
+import SkillSet from '@skillSet/SkillSet';
 import useBreakpoint from '../customHooks/useBreakpoint';
 
 const queries = {
@@ -34,7 +34,7 @@ const Resume = (props) => {
           <div className={`col-sm-5 g-0 ${rounded}`}>
             <Hero />
             <Summary />
-            <CoreCompetencies core={props.core} />
+            <SkillSet core={props.core} />
           </div>
           <div className="col-sm-7 g-0">
             <Main>

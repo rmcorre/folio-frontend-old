@@ -6,9 +6,9 @@ import Tech from '@tech/Tech';
 import Framework from '@framework/Framework';
 import Tool from '@tool/Tool';
 
-import styles from './CoreCompetencies.module.css';
+import styles from './SkillSet.module.css';
 
-const coreCompetencies = (props) => {
+const SkillSet = (props) => {
   const concepts = props.core.concepts.map(({ id, concept }) => (
     <Concept key={id} concept={concept} />
   ));
@@ -36,4 +36,4 @@ const coreCompetencies = (props) => {
   );
 };
 
-export default coreCompetencies;
+export default SkillSet;
