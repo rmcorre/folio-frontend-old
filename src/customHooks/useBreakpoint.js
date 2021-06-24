@@ -56,7 +56,6 @@ const useBreakpoint = (queries) => {
     };
   }, [queries]);
 
-  console.log(queryMatch);
   return queryMatch;
 };
 

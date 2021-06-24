@@ -1,8 +1,8 @@
 import React from "react";
 
-const concept = (props) => {
+const Concept = (props) => {
   const concept = props.concept;
   return <div>{concept}</div>;
 };
 
-export default concept;
+export default Concept;
