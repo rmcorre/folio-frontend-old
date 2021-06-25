@@ -6,7 +6,7 @@ import EducationList from '../components/Education/EducationList';
 import ExperienceList from '../components/Experience/ExperienceList';
 
 const ProfileContextTest = (props) => {
-  const { profile, experiences } = usePortfolioAPI();
+  const { profile } = usePortfolioAPI();
 
   return (
     <div>
@@ -20,7 +20,7 @@ const ProfileContextTest = (props) => {
       </ul>
       <SkillSet />
       <EducationList />
-      <ExperienceList experiences={experiences} />
+      <ExperienceList />
     </div>
   );
 };

@@ -1,9 +1,13 @@
 import React from 'react';
+
+import { usePortfolioAPI } from '../../store/portfolioContext';
 import Experience from '../Experience/Experience';
 import styles from './ExperienceList.module.css';
 
 const ExperienceList = (props) => {
-  const experienceList = props.experiences.map(
+  const { experiences } = usePortfolioAPI();
+
+  const experienceList = experiences.map(
     ({ id, organization, startDate, endDate, jobRole, summary, duties }) => (
       <Experience
         key={id}
