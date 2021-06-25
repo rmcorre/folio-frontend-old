@@ -1,11 +1,11 @@
-import React from "react";
-import WorkExperience from "../WorkExperience/WorkExperience";
-import styles from "./WorkExperienceList.module.css";
+import React from 'react';
+import Experience from '../Experience/Experience';
+import styles from './ExperienceList.module.css';
 
-const workExperienceList = (props) => {
+const ExperienceList = (props) => {
   const experienceList = props.experiences.map(
     ({ id, organization, startDate, endDate, jobRole, summary, duties }) => (
-      <WorkExperience
+      <Experience
         key={id}
         organization={organization}
         startDate={startDate}
@@ -25,4 +25,4 @@ const workExperienceList = (props) => {
   );
 };
 
-export default workExperienceList;
+export default ExperienceList;

@@ -3,7 +3,7 @@ import React from 'react';
 import { usePortfolioAPI } from '../store/portfolioContext';
 import SkillSet from '../components/SkillSet/SkillSet';
 import EducationList from '../components/Education/EducationList';
-import WorkExperienceList from '../components/WorkExperience/WorkExperienceList';
+import ExperienceList from '../components/Experience/ExperienceList';
 
 const ProfileContextTest = (props) => {
   const { profile, experiences } = usePortfolioAPI();
@@ -20,7 +20,7 @@ const ProfileContextTest = (props) => {
       </ul>
       <SkillSet />
       <EducationList />
-      <WorkExperienceList experiences={experiences} />
+      <ExperienceList experiences={experiences} />
     </div>
   );
 };
