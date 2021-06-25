@@ -1,11 +1,15 @@
-import React from "react";
-import WorkExperience from "../WorkExperience/WorkExperience";
-import styles from "./WorkExperienceList.module.css";
+import React from 'react';
 
-const workExperienceList = (props) => {
-  const experienceList = props.experiences.map(
+import { usePortfolioAPI } from '../../store/portfolioContext';
+import Experience from '../Experience/Experience';
+import styles from './ExperienceList.module.css';
+
+const ExperienceList = (props) => {
+  const { experiences } = usePortfolioAPI();
+
+  const experienceList = experiences.map(
     ({ id, organization, startDate, endDate, jobRole, summary, duties }) => (
-      <WorkExperience
+      <Experience
         key={id}
         organization={organization}
         startDate={startDate}
@@ -25,4 +29,4 @@ const workExperienceList = (props) => {
   );
 };
 
-export default workExperienceList;
+export default ExperienceList;

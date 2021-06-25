@@ -13,10 +13,7 @@ module.exports = {
       '@summary': path.resolve(__dirname, 'src/components/Summary'),
       '@contact': path.resolve(__dirname, 'src/components/Contact'),
       '@education': path.resolve(__dirname, 'src/components/Education'),
-      '@workExperience': path.resolve(
-        __dirname,
-        'src/components/WorkExperience'
-      ),
+      '@experience': path.resolve(__dirname, 'src/components/Experience'),
       '@skillSet': path.resolve(__dirname, 'src/components/SkillSet'),
       '@concept': path.resolve(__dirname, 'src/components/SkillSet/Concept'),
       '@tech': path.resolve(__dirname, 'src/components/SkillSet/Tech'),

@@ -1,15 +1,15 @@
-import React from "react";
-import styles from "./WorkExperience.module.css";
+import React from 'react';
+import styles from './Experience.module.css';
 
-const workExperience = (props) => {
+const Experience = (props) => {
   const jobRole = props.jobRole;
   const organization = props.organization;
   const startDate = props.startDate;
   const endDate = props.endDate;
   const summary = props.summary;
-  const organizationLine = organization + " | " + startDate + " - " + endDate;
+  const organizationLine = organization + ' | ' + startDate + ' - ' + endDate;
 
-  const result = props.duties.split(";");
+  const result = props.duties.split(';');
   const dutiesList = result.map((duty, index) => <p key={index}>{duty}</p>);
 
   return (
@@ -23,4 +23,4 @@ const workExperience = (props) => {
   );
 };
 
-export default workExperience;
+export default Experience;
