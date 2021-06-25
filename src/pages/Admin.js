@@ -1,6 +1,5 @@
 import React from 'react';
 
-// import ProfileContext from '../store/profile-context';
 import AdminNavBar from '../components/UI/Navbar/AdminNavBar';
 import AdminCard from '../components/Admin/AdminCard';
 import Identity from '../components/Identity/Identity';
@@ -11,8 +10,6 @@ import Summary from '../components/Summary/Summary';
 import styles from './Admin.module.css';
 
 const Admin = (props) => {
-  // const ctx = useContext(ProfileContext);
-
   return (
     <>
       <AdminNavBar />
