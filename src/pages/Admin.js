@@ -21,7 +21,7 @@ const Admin = (props) => {
                 <Avatar />
               </div>
               <Identity />
-              <Contact className="text-secondary" />
+              <Contact />
             </AdminCard>
           </div>
           <div className="col-md-3">

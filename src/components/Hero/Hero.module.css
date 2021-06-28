@@ -1,15 +1,7 @@
 .wrapper {
-  /* background-color: #01588a; */
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   /* background-image: url('https://www.transparenttextures.com/patterns/shattered-dark.png'); */
-  color: #ffffff;
   padding: 1.25rem 1.25rem 3.125rem 1.25rem;
-}
-
-.edit {
-  position: absolute;
-  top: 25px;
-  right: 25px;
 }
 
 .flexbox {

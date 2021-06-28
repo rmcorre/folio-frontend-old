@@ -8,7 +8,7 @@ const avatar = () => {
   return (
     <picture>
       <source media="(min-width: 400px)" srcSet={avatarMd} />
-      <source media="(min-width: 300px)" srcSet={avatarSm} />
+      {/* <source media="(min-width: 300px)" srcSet={avatarSm} /> */}
       <source media="(min-width: 200px)" srcSet={avatarXS} />
       <img
         className={styles.responsive_img}

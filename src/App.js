@@ -5,7 +5,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import { PortfolioContextProvider } from './store/portfolioContext';
 import ProtectedRoute from './auth/protected-route';
 import Portfolio from './pages/Portfolio';
-import Resume from './pages/Resume';
+import Resume from './pages/Resume/Resume';
 import Admin from './pages/Admin';
 import Loading from './components/Loading/Loading';
 

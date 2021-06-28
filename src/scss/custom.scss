@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro:wght@300;400&display=swap');
+
+// Default variable overrides here
+// #################################
+
+$primary: #0278bd;
+$secondary: #01588a;
+$dark: #01273d;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'dark': $dark,
+);
+
+$container-max-widths: (
+  md: 720px,
+  lg: 960px,
+  xl: 960px,
+  xxl: 960px,
+);
+
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer / 4,
+  2: $spacer / 2,
+  3: $spacer,
+  4: $spacer * 1.25,
+  5: $spacer * 1.5,
+  6: $spacer * 3,
+  7: $spacer * 3.125,
+);
+
+$headings-margin-bottom: $spacer / 2;
+$headings-font-family: 'Roboto', sans-serif;
+$headings-font-style: null;
+$headings-font-weight: 500;
+$headings-line-height: 1.2;
+$headings-color: null;
+
+// This import must always be last for default variable overrides
+@import '../../node_modules/bootstrap/scss/bootstrap';
+// End default variable overrides
+
+// Global reset
+// #################################
+
+// Elements
+// Reset beginning with xs breakpoint then use media queries
+// for required adjustments based on following breakpoints
+
+body {
+  background-color: #eceff1;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+}
+
+section {
+  padding: 1.75rem;
+}
+
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6,
+// .h1,
+// .h2,
+// .h3,
+// .h4,
+// .h5,
+// .h6 {
+//   font-family: 'Roboto', sans-serif;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
+address {
+  font-size: 0.8rem;
+  padding: 0 20px 0 0;
+  line-height: 1.5;
+  margin: 0;
+}
+
+// End Gobal reset
+
+// Custom classes
+// #################################
+
+.first {
+  margin-top: 1rem;
+}
+
+.last {
+  margin-bottom: 1rem;
+}
+
+.flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resume-profile {
+  background-color: $secondary;
+  color: $white;
+}
+
+.resume-summary {
+  background-color: $primary;
+  color: $white;
+  font-size: 0.9rem;
+  line-height: 1.563rem;
+  letter-spacing: 0.004rem;
+}
+// End custom classes
+
+// Media queries
+// #################################
+
+@media (min-width: 48rem) {
+  section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}

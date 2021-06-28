@@ -8,9 +8,9 @@ const Summary = (props) => {
 
   return (
     <>
-      <section className={`${props.className} ${styles.wrapper}`}>
-        <h4>About Me</h4>
-        <p>{profile.summary}</p>
+      <section className={`${props.style}`}>
+        <h4 className="first">About Me</h4>
+        <p className="mb-0">{profile.summary}</p>
       </section>
     </>
   );
