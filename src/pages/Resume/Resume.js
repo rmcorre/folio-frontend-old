@@ -1,13 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import SiteNavbar from '../../components/UI/Navbar/SiteNavbar';
+import SiteNavbar from '@components/UI/Navbar/SiteNavbar';
 import Main from '@main/Main';
-import ProfileSection from './Layout/ProfileSection';
-import Summary from '@summary/Summary';
+import ProfileSection from '@components/ProfileSection/ProfileSection';
+import SummarySection from '@summarySection/SummarySection';
+import SkillSetSection from '@skillSetSection/SkillSetSection';
 import EducationList from '@education/EducationList';
 import ExperienceList from '@experience/ExperienceList';
-import SkillSet from '@skillSet/SkillSet';
 import useBreakpoint from '../../customHooks/useBreakpoint';
 
 const queries = {
@@ -32,9 +32,9 @@ const Resume = (props) => {
         <h1 className="hide_element">Resume</h1>
         <div className="row min-vh-100 shadow-sm mb-5">
           <div className={`col-sm-5 g-0 ${brtl}`}>
-            <ProfileSection style="resume-profile" radius={brtl} />
-            <Summary style="resume-summary" />
-            <SkillSet />
+            <ProfileSection style="resume-col_1-header" radius={brtl} />
+            <SummarySection style="resume-col_1-main" />
+            <SkillSetSection style="resume-col_1-main" />
           </div>
           <div className="col-sm-7 g-0">
             <Main>

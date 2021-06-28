@@ -1,13 +1,11 @@
 import React from 'react';
-
 import { usePortfolioAPI } from '../../store/portfolioContext';
-import Grid from '../Grid/Grid';
+
+import Grid_2_Col from '../Grid/Col-2-autorow';
 import Concept from '@concept/Concept';
 import Tech from '@tech/Tech';
 import Framework from '@framework/Framework';
 import Tool from '@tool/Tool';
-
-import styles from './SkillSet.module.css';
 
 const SkillSet = (props) => {
   const { skillSet } = usePortfolioAPI();
@@ -29,12 +27,12 @@ const SkillSet = (props) => {
   ));
 
   return (
-    <section className={styles.wrapper}>
+    <section className={props.style}>
       <h4>Core Competencies</h4>
-      <Grid heading={'Concepts'} list={concepts} />
-      <Grid heading={'Technologies'} list={techs} />
-      <Grid heading={'Frameworks / Libraries'} list={frameworks} />
-      <Grid heading={'Tools'} list={tools} />
+      <Grid_2_Col heading={'Concepts'} list={concepts} />
+      <Grid_2_Col heading={'Technologies'} list={techs} />
+      <Grid_2_Col heading={'Frameworks / Libraries'} list={frameworks} />
+      <Grid_2_Col heading={'Tools'} list={tools} />
     </section>
   );
 };

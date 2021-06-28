@@ -5,7 +5,7 @@ import AdminCard from '../components/Admin/AdminCard';
 import Identity from '../components/Identity/Identity';
 import Contact from '../components/Contact/Contact';
 import Avatar from '../components/Avatar/Avatar';
-import Summary from '../components/Summary/Summary';
+import SummarySection from '../components/SummarySection/SummarySection';
 
 import styles from './Admin.module.css';
 
@@ -26,7 +26,7 @@ const Admin = (props) => {
           </div>
           <div className="col-md-3">
             <AdminCard>
-              <Summary />
+              <SummarySection />
             </AdminCard>
           </div>
         </div>
