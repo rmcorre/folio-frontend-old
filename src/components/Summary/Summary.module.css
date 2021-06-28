@@ -1,19 +1,11 @@
 .wrapper {
-  background-color: #0277bd;
+  background-color: #0278bd;
   color: #fff;
   font-size: 0.9rem;
   line-height: 1.563rem;
   letter-spacing: 0.004rem;
-  padding: 3.125rem 1.25rem 1.563rem 1.25rem;
-  width: 100%;
 }
 
 .wrapper p {
   margin-bottom: 0;
-}
-
-@media (min-width: 48rem) {
-  .wrapper {
-    padding: 3.125rem 2.5rem 1.563rem 2.5rem;
-  }
 }

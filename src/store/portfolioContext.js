@@ -11,7 +11,7 @@ export function PortfolioContextProvider({ children }) {
     // http://192.168.1.73:8080 (when on another another device)
 
     async function fetchData() {
-      const { data } = await axios.get('http://192.168.1.73:8080/profiles');
+      const { data } = await axios.get('http://localhost:8080/profiles');
       setPortfolio(data.find((profile) => profile.id === 1));
     }
 
