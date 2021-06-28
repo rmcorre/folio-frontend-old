@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-
 import { usePortfolioAPI } from '../../store/portfolioContext';
-import styles from './Summary.module.css';
 
-const Summary = (props) => {
+const SummarySection = (props) => {
   const { profile } = usePortfolioAPI();
 
   return (
@@ -16,4 +14,4 @@ const Summary = (props) => {
   );
 };
 
-export default Summary;
+export default SummarySection;

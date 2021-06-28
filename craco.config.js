@@ -10,18 +10,27 @@ module.exports = {
       '@hero': path.resolve(__dirname, 'src/components/Hero'),
       '@identity': path.resolve(__dirname, 'src/components/Identity'),
       '@avatar': path.resolve(__dirname, 'src/components/Avatar'),
-      '@summary': path.resolve(__dirname, 'src/components/Summary'),
+      '@summarySection': path.resolve(
+        __dirname,
+        'src/components/SummarySection'
+      ),
       '@contact': path.resolve(__dirname, 'src/components/Contact'),
       '@education': path.resolve(__dirname, 'src/components/Education'),
       '@experience': path.resolve(__dirname, 'src/components/Experience'),
-      '@skillSet': path.resolve(__dirname, 'src/components/SkillSet'),
-      '@concept': path.resolve(__dirname, 'src/components/SkillSet/Concept'),
-      '@tech': path.resolve(__dirname, 'src/components/SkillSet/Tech'),
+      '@skillSetSection': path.resolve(
+        __dirname,
+        'src/components/SkillSetSection'
+      ),
+      '@concept': path.resolve(
+        __dirname,
+        'src/components/SkillSetSection/Concept'
+      ),
+      '@tech': path.resolve(__dirname, 'src/components/SkillSetSection/Tech'),
       '@framework': path.resolve(
         __dirname,
-        'src/components/SkillSet/Framework'
+        'src/components/SkillSetSection/Framework'
       ),
-      '@tool': path.resolve(__dirname, 'src/components/SkillSet/Tool'),
+      '@tool': path.resolve(__dirname, 'src/components/SkillSetSection/Tool'),
     },
   },
 };
