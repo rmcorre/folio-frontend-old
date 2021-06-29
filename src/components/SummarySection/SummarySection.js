@@ -6,7 +6,7 @@ const SummarySection = (props) => {
 
   return (
     <>
-      <section className={`${props.style}`}>
+      <section className={`${props.layout}`}>
         <h4 className="first">About Me</h4>
         <p className="mb-0">{profile.summary}</p>
       </section>

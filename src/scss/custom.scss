@@ -3,13 +3,23 @@
 // Default variable overrides here
 // #################################
 
+// grays
+$gray-900: #212529 !default;
+
+// theme colors
 $primary: #0278bd;
 $secondary: #01588a;
-$dark: #01273d;
+$slateBlue: #01273d;
+$slateGray: #132e3d;
+$lightBlue: #3e95c7;
+$dark: $gray-900;
 
 $theme-colors: (
   'primary': $primary,
   'secondary': $secondary,
+  'slateBlue': $slateBlue,
+  'slateGray': $slateGray,
+  'lightBlue': $lightBlue,
   'dark': $dark,
 );
 
@@ -60,9 +70,9 @@ body {
   margin: 0;
 }
 
-section {
-  padding: 1.75rem;
-}
+// section {
+//   padding: 1.75rem;
+// }
 
 // h1,
 // h2,
@@ -118,17 +128,19 @@ address {
   }
 }
 
-.resume-col_1-header {
+.resume-intro-header {
   background-color: $secondary;
   color: $white;
+  padding: 1.75rem;
 }
 
-.resume-col_1-main {
+.resume-intro-body {
   background-color: $primary;
   color: $white;
   font-size: 0.9rem;
   line-height: 1.563rem;
   letter-spacing: 0.004rem;
+  padding: 1.75rem;
 }
 // End custom classes
 
@@ -137,8 +149,8 @@ address {
 
 // should change 48rem to sass breakpoint variable
 @media (min-width: 48rem) {
-  section {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+  .resume-col_1-header,
+  .resume-col_1-main {
+    padding: 2.5rem;
   }
 }

@@ -1,21 +1,19 @@
 import React from 'react';
 
+//Need this to use collapse functionality
 import { Navbar } from 'bootstrap';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminNav from './AdminNav';
 import AuthNav from './AuthNav';
 
-import styles from './NavBar.module.css';
-
 const AdminNavbar = (props) => {
   return (
-    <nav
-      className={`navbar navbar-expand-lg navbar-dark mb-5 ${styles.bgColor}`}
-    >
+    <nav className="navbar navbar-expand-lg navbar-dark mb-5 bg-slateGray">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <FontAwesomeIcon
-            className="text-info ms-3"
+            className="text-lightBlue ms-3"
             icon="suitcase"
             size="2x"
           />
