@@ -32,9 +32,9 @@ const Resume = (props) => {
         <h1 className="hide_element">Resume</h1>
         <div className="row min-vh-100 shadow-sm mb-5">
           <div className={`col-sm-5 g-0 ${brtl}`}>
-            <ProfileSection style="resume-col_1-header" radius={brtl} />
-            <SummarySection style="resume-col_1-main" />
-            <SkillSetSection style="resume-col_1-main" />
+            <ProfileSection layout="resume-intro-header" radius={brtl} />
+            <SummarySection layout="resume-intro-body" />
+            <SkillSetSection layout="resume-intro-body" />
           </div>
           <div className="col-sm-7 g-0">
             <Main>

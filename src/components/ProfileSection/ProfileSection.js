@@ -6,7 +6,7 @@ import Avatar from '@components/Avatar/Avatar';
 
 const ProfileSection = (props) => {
   return (
-    <section className={`${props.style} ${props.radius}`}>
+    <section className={`${props.layout} ${props.radius}`}>
       <Identity />
       <div className="last flex-between-center">
         <Contact />

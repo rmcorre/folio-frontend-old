@@ -27,7 +27,7 @@ const SkillSet = (props) => {
   ));
 
   return (
-    <section className={props.style}>
+    <section className={props.layout}>
       <h4>Core Competencies</h4>
       <Grid_2_Col heading={'Concepts'} list={concepts} />
       <Grid_2_Col heading={'Technologies'} list={techs} />
