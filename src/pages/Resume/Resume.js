@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import SiteNavbar from '@components/UI/Navbar/SiteNavbar';
-import Main from '@main/Main';
-import ProfileSection from '@components/ProfileSection/ProfileSection';
-import SummarySection from '@summarySection/SummarySection';
-import SkillSetSection from '@skillSetSection/SkillSetSection';
+import SiteNavbar from '@SiteNavbar';
+import Main from '@Main';
+import ProfileSection from '@ProfileSection';
+import SummarySection from '@SummarySection';
+import SkillSetSection from '@SkillSetSection';
 import EducationList from '@education/EducationList';
 import ExperienceList from '@experience/ExperienceList';
 import useBreakpoint from '../../customHooks/useBreakpoint';

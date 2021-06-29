@@ -2,10 +2,10 @@ import React from 'react';
 
 import AdminNavBar from '../components/UI/Navbar/AdminNavBar';
 import AdminCard from '../components/Admin/AdminCard';
-import Identity from '../components/Identity/Identity';
-import Contact from '../components/Contact/Contact';
-import Avatar from '../components/Avatar/Avatar';
-import SummarySection from '../components/SummarySection/SummarySection';
+import Identity from '@Identity';
+import Contact from '@Contact';
+import Avatar from '@Avatar';
+import SummarySection from '@SummarySection';
 
 import styles from './Admin.module.css';
 
