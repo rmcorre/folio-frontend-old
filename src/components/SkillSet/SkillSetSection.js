@@ -2,10 +2,10 @@ import React from 'react';
 import { usePortfolioAPI } from '../../store/portfolioContext';
 
 import Grid_2_Col from '../Grid/Col-2-autorow';
-import Concept from '@concept/Concept';
-import Tech from '@tech/Tech';
-import Framework from '@framework/Framework';
-import Tool from '@tool/Tool';
+import Concept from '@Concept';
+import Tech from '@Tech';
+import Framework from '@Framework';
+import Tool from '@Tool';
 
 const SkillSet = (props) => {
   const { skillSet } = usePortfolioAPI();

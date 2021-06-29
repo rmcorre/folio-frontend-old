@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Identity from '@components/Identity/Identity';
-import Contact from '@components/Contact/Contact';
-import Avatar from '@components/Avatar/Avatar';
+import Identity from '@Identity';
+import Contact from '@Contact';
+import Avatar from '@Avatar';
 
 const ProfileSection = (props) => {
   return (
