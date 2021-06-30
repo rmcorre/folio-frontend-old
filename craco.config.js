@@ -18,8 +18,12 @@ module.exports = {
       '@Contact': resolve('src/components/Contact/Contact.js'),
       '@ProfileSection': resolve('src/components/Profile/ProfileSection.js'),
       '@SummarySection': resolve('src/components/Summary/SummarySection'),
-      '@education': path.resolve(__dirname, 'src/components/Education'),
-      '@experience': path.resolve(__dirname, 'src/components/Experience'),
+      '@EducationSection': resolve(
+        'src/components/Education/EducationSection.js'
+      ),
+      '@ExperienceSection': resolve(
+        'src/components/Experience/ExperienceSection.js'
+      ),
       '@SkillSetSection': resolve('src/components/SkillSet/SkillSetSection.js'),
       '@Concept': resolve('src/components/SkillSet/Concept/Concept.js'),
       '@Tech': resolve('src/components/SkillSet/Tech/Tech.js'),

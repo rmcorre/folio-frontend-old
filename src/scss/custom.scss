@@ -140,6 +140,17 @@ address {
   div:last-child hr {
     display: none;
   }
+  .date {
+    margin: 0 0 1rem 0;
+  }
+  .summary {
+    margin: 0 0 1rem 0;
+    line-height: 1rem;
+  }
+  .duties p {
+    margin: 0 0 0.438rem 0;
+    line-height: 1.12;
+  }
 }
 // End custom classes
 
@@ -148,8 +159,8 @@ address {
 
 // should change 48rem to sass breakpoint variable
 @media (min-width: 48rem) {
-  .resume-col_1-header,
-  .resume-col_1-main,
+  .resume-intro-header,
+  .resume-intro-body,
   .resume-detail-body {
     padding: 2.5rem;
   }
