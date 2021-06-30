@@ -6,7 +6,7 @@ import Main from '@Main';
 import ProfileSection from '@ProfileSection';
 import SummarySection from '@SummarySection';
 import SkillSetSection from '@SkillSetSection';
-import EducationList from '@education/EducationList';
+import EducationSection from '@education/EducationSection';
 import ExperienceList from '@experience/ExperienceList';
 import useBreakpoint from '../../customHooks/useBreakpoint';
 
@@ -38,7 +38,7 @@ const Resume = (props) => {
           </div>
           <div className="col-sm-7 g-0">
             <Main>
-              <EducationList />
+              <EducationSection layout="resume-detail-body" />
               <ExperienceList />
             </Main>
           </div>

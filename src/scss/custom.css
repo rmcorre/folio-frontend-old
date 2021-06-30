@@ -12309,6 +12309,14 @@ address {
   margin: 0;
 }
 
+.avatar {
+  margin-left: 10%;
+  max-width: 90%;
+  max-height: 90%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .first {
   margin-top: 1rem;
 }
@@ -12360,9 +12368,25 @@ address {
   padding: 1.75rem;
 }
 
+.resume-detail-body {
+  font-size: 0.9rem;
+  line-height: 1.2;
+  letter-spacing: 0.004rem;
+  padding: 1.75rem;
+}
+
+.resume-detail-body h4, .resume-detail-body .h4 {
+  margin: 0 0 1rem 0;
+}
+
+.resume-detail-body div:last-child hr {
+  display: none;
+}
+
 @media (min-width: 48rem) {
   .resume-col_1-header,
-  .resume-col_1-main {
+  .resume-col_1-main,
+  .resume-detail-body {
     padding: 2.5rem;
   }
 }
