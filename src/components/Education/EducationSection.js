@@ -1,11 +1,9 @@
 import React from 'react';
-
 import { usePortfolioAPI } from '../../store/portfolioContext';
-import Education from '../Education/Education';
 
-import styles from './EducationList.module.css';
+import Education from './Education';
 
-const EducationList = (props) => {
+const EducationSection = (props) => {
   const { educations } = usePortfolioAPI();
 
   const educationList = educations.map(
@@ -29,11 +27,11 @@ const EducationList = (props) => {
   );
 
   return (
-    <section className={styles.wrapper}>
+    <section className={props.layout}>
       <h4>Educational Background</h4>
       {educationList}
     </section>
   );
 };
 
-export default EducationList;
+export default EducationSection;

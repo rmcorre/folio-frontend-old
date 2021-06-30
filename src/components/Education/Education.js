@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Education.module.css';
 
 const Education = (props) => {
   const course = props.course;
@@ -7,12 +6,13 @@ const Education = (props) => {
   const startDate = props.startDate;
   const endDate = props.endDate;
   const country = props.country;
-  const institutionLine = institution + ' | ' + startDate + ' - ' + endDate;
+  const date = startDate + ' - ' + endDate;
 
   return (
-    <div className={styles.wrapper}>
-      <h6 className={styles.course}>{course}</h6>
-      <div className={styles.institution}>{institutionLine}</div>
+    <div>
+      <h6>{course}</h6>
+      <div>{institution}</div>
+      <div>{date}</div>
       <div>{country}</div>
       <hr />
     </div>
