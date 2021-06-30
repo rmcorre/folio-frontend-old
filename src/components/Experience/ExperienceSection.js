@@ -1,10 +1,9 @@
 import React from 'react';
-
 import { usePortfolioAPI } from '../../store/portfolioContext';
-import Experience from '../Experience/Experience';
-import styles from './ExperienceList.module.css';
 
-const ExperienceList = (props) => {
+import Experience from './Experience';
+
+const ExperienceSection = (props) => {
   const { experiences } = usePortfolioAPI();
 
   const experienceList = experiences.map(
@@ -22,11 +21,11 @@ const ExperienceList = (props) => {
   );
 
   return (
-    <section className={styles.wrapper}>
+    <section className={props.layout}>
       <h4>Work Experience</h4>
       {experienceList}
     </section>
   );
 };
 
-export default ExperienceList;
+export default ExperienceSection;

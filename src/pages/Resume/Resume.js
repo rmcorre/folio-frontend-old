@@ -6,8 +6,8 @@ import Main from '@Main';
 import ProfileSection from '@ProfileSection';
 import SummarySection from '@SummarySection';
 import SkillSetSection from '@SkillSetSection';
-import EducationSection from '@education/EducationSection';
-import ExperienceList from '@experience/ExperienceList';
+import EducationSection from '@EducationSection';
+import ExperienceSection from '@ExperienceSection';
 import useBreakpoint from '../../customHooks/useBreakpoint';
 
 const queries = {
@@ -39,7 +39,7 @@ const Resume = (props) => {
           <div className="col-sm-7 g-0">
             <Main>
               <EducationSection layout="resume-detail-body" />
-              <ExperienceList />
+              <ExperienceSection layout="resume-detail-body" />
             </Main>
           </div>
         </div>

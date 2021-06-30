@@ -12383,9 +12383,23 @@ address {
   display: none;
 }
 
+.resume-detail-body .date {
+  margin: 0 0 1rem 0;
+}
+
+.resume-detail-body .summary {
+  margin: 0 0 1rem 0;
+  line-height: 1rem;
+}
+
+.resume-detail-body .duties p {
+  margin: 0 0 0.438rem 0;
+  line-height: 1.12;
+}
+
 @media (min-width: 48rem) {
-  .resume-col_1-header,
-  .resume-col_1-main,
+  .resume-intro-header,
+  .resume-intro-body,
   .resume-detail-body {
     padding: 2.5rem;
   }
