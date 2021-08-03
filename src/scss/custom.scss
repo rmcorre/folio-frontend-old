@@ -12,6 +12,7 @@ $secondary: #01588a;
 $slateBlue: #01273d;
 $slateGray: #132e3d;
 $lightBlue: #3e95c7;
+$cream: #f8f8f8;
 $dark: $gray-900;
 
 $theme-colors: (
@@ -20,6 +21,7 @@ $theme-colors: (
   'slateBlue': $slateBlue,
   'slateGray': $slateGray,
   'lightBlue': $lightBlue,
+  'cream': $cream,
   'dark': $dark,
 );
 
@@ -89,6 +91,30 @@ address {
   object-fit: contain;
 }
 
+.r-tl {
+  border-radius: 10px 0 0 0;
+}
+
+.r-tr {
+  border-radius: 0 10px 0 0;
+}
+
+.r-br {
+  border-radius: 0 0 10px 0;
+}
+
+.r-bl {
+  border-radius: 0 0 0 10px;
+}
+
+.r-start {
+  border-radius: 10px 0 0 10px;
+}
+
+.r-end {
+  border-radius: 0 10px 10px 0;
+}
+
 .first {
   margin-top: 1rem;
 }
@@ -130,6 +156,8 @@ address {
 }
 
 .resume-detail-body {
+  background-color: $cream;
+  color: $slateBlue;
   font-size: 0.9rem;
   line-height: 1.2;
   letter-spacing: 0.004rem;

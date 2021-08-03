@@ -27,7 +27,7 @@ const EducationSection = (props) => {
   );
 
   return (
-    <section className={props.layout}>
+    <section className={`${props.layout} ${props.radius}`}>
       <h4>Educational Background</h4>
       {educationList}
     </section>

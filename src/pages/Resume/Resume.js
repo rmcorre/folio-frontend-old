@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import SiteNavbar from '@SiteNavbar';
-import Main from '@Main';
 import ProfileSection from '@ProfileSection';
 import SummarySection from '@SummarySection';
 import SkillSetSection from '@SkillSetSection';
@@ -21,29 +20,49 @@ const Resume = (props) => {
   const matchPoints = useBreakpoint(queries);
   const matches = { ...matchPoints };
 
-  const brtl = classNames({
-    'br-tl': matches.md,
+  const rtl = classNames({
+    'r-tl': matches.md,
+  });
+
+  const rbl = classNames({
+    'r-bl': matches.md,
+  });
+
+  const rtr = classNames({
+    'r-tr': matches.md,
+  });
+
+  const rbr = classNames({
+    'r-br': matches.md,
+  });
+
+  const rStart = classNames({
+    'r-start': matches.md,
+  });
+
+  const rEnd = classNames({
+    'r-end': matches.md,
   });
 
   return (
     <>
       <SiteNavbar />
-      <div className="container mt-md-5">
-        <h1 className="hide_element">Resume</h1>
-        <div className="row min-vh-100 shadow-sm mb-5">
-          <div className={`col-sm-5 g-0 ${brtl}`}>
-            <ProfileSection layout="resume-intro-header" radius={brtl} />
-            <SummarySection layout="resume-intro-body" />
-            <SkillSetSection layout="resume-intro-body" />
-          </div>
-          <div className="col-sm-7 g-0">
-            <Main>
-              <EducationSection layout="resume-detail-body" />
-              <ExperienceSection layout="resume-detail-body" />
-            </Main>
+      <main>
+        <div className="container mt-md-5">
+          <h1 className="hide_element">Resume</h1>
+          <div className="row min-vh-100 mb-5">
+            <div className={`col-sm-5 g-0`}>
+              <ProfileSection layout="resume-intro-header" radius={rtl} />
+              <SummarySection layout="resume-intro-body" />
+              <SkillSetSection layout="resume-intro-body" radius={rbl} />
+            </div>
+            <div className={`col-sm-7 bg-cream g-0 ${rEnd}`}>
+              <EducationSection layout="resume-detail-body" radius={rtr} />
+              <ExperienceSection layout="resume-detail-body" radius={rbr} />
+            </div>
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 };

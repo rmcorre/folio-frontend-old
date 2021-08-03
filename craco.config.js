@@ -9,8 +9,6 @@ module.exports = {
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@SiteNavbar': resolve('src/components/UI/Navbar/SiteNavbar.js'),
-      '@sideBar': path.resolve(__dirname, 'src/components/SideBar'),
-      '@Main': resolve('src/components/Main/Main.js'),
       '@grid': path.resolve(__dirname, 'src/components/Grid'),
       '@hero': path.resolve(__dirname, 'src/components/Hero'),
       '@Identity': resolve('src/components/Identity/Identity.js'),
